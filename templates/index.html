@@ -5,224 +5,62 @@
 	<meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta charset="UTF-8">
-	<style type='text/css'>
-		body 
-		{		
-			margin: 0;
-			padding: 0;
-		} 
-	</style>
-	<style type="text/css">
-		
-		iframe { 
-			vertical-align: top;
-		}
-		
-		#canvas_holder{
-			position: fixed;
-			top: 0px;
-			left: 0px;
-			width:100%; 
-			height:100%;
-			z-index: 0;
-		}
-		
-		#map_canvas{
-			width:100%;
-			height:100%; 
-			position: "absolute"; 
-			top: 0px; 
-			left: 0px; 
-			overflow: "hidden";
-		}
-
-		#holder{
-			background: rgba(0,0,0,1);
-			width:100%;
-			height:85px;
-			z-index: 100;
-			position:relative;
-			color: white;
-			padding: 0;
-			margin: 0;
-			border-radius: 0px;
-			-moz-border-radius: 0px;
-			-o-border-radius: 0px;
-			-webkit-border-radius: 0px;
-			-ms-border-radius: 0px;
-		}
-		
-		a{
-			color: white;
-		}
-	}
-</style>
-
-<script language="Javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
-
-<script type="text/javascript">
-
-		/*
-		Global
-		*/
-		var map;
-
-		function initialize() {
-
-			/*
-			Basic Setup
-			*/
-
-			var latLng = new google.maps.LatLng(39.8282,-98.5795);
-			
-			var stylez = [
-			{
-				featureType: "all",
-				elementType: "all",
-				stylers: [
-				{ saturation: -100 }, // <-- THIS
-				{ lightness: -20 }
-				]
-			}
-			];
-			
-			var myOptions = {
-				panControl: false,
-				zoomControl: false,
-				mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
-				scaleControl: false,
-				streetViewControl: false,
-				overviewMapControl: false,
-				draggable: true,
-				disableDoubleClickZoom: true,     //disable zooming
-				scrollwheel: true,
-				zoom: 4,
-				center: latLng,
-			};
-
-			map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-			
-			var mapType = new google.maps.StyledMapType(stylez, {name: "Grayscale"});
-			map.mapTypes.set('tehgrayz', mapType);
-			map.setMapTypeId('tehgrayz')
-
-			/*
-			MARKER
-			*/
-			
-			/*
-			//for custom image
-			var image = 'yourflag.png';
-			icon: image 
-			
-			//for animation marker drop
-			animation: google.maps.Animation.DROP
-			
-			*/
-			var markerlatlng = new google.maps.LatLng(39.8282,-98.5795);
-			
-			var marker = new google.maps.Marker({
-				position: markerlatlng,
-				title:"Hello World!"
-			});
-			
-			marker.setMap(map);
-			
-			/*
-			INFO Bubble
-			*/
-			
-			myInfoWindowOptions = {
-				content: '<div class="info-window-content"><h4>Hello! I am a Google Map custom marker</h4></div>',
-				maxWidth: 275
-			};
-			
-			infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
-
-			google.maps.event.addListener(marker, 'click', function() {
-				infoWindow.open(map,marker);
-			});
-
-			google.maps.event.addListener(marker, 'dragstart', function(){
-				infoWindow.close();
-			});
-			
-			infoWindow.open(map,marker);
-
-			google.maps.event.addListener(map, 'mousemove', function(event){
-				updateCurLatLong(event);
-			});
-
-
-		}//end initialize
-
-		function allowDrop(ev){
-			ev.preventDefault();
-			updateCurLatLong(ev);
-		}
-
-		
-		function drop(ev)
-		{
-			ev.preventDefault();
-			var marker = new google.maps.Marker({
-				position: curLatLng,
-				map: map,
-				title:"Hello World!"
-			});
-			console.log(curLatLng);
-			//var data=ev.dataTransfer.getData("Text");
-			//ev.target.appendChild(document.getElementById(data));
-		}
-
-		function updateCurLatLong(event){
-			curLatLng = event.latLng;
-			//console.log(curLatLng);
-		}
-
-		
-		/*
-		onLoad
-		*/
-		$(function(){
-			initialize();
-			
-			$("#zo").click(function(event){
-				event.preventDefault(); 
-				map.setZoom( map.getZoom()-1 );
-				//map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
-			});
-			
-			$("#zi").click(function(event){
-				event.preventDefault(); 
-				map.setZoom( map.getZoom()+1 );
-			});
-			
-			$("#gt").click(function(event){
-				event.preventDefault(); 
-				var lt1 = new google.maps.LatLng(36.114739, -115.171840);
-				//map.setZoom( 16 );
-				map.panTo(lt1);
-			});
-			
-		});
-
-	</script>
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
 </head>
 <body>
-	
+
 	<div id="holder">
 		<!--<a href="#" id="zi">Zoom In</a>
 		<a href="#" id="zo">Zoom Out</a>
 		<a href="#" id="gt">GoTo</a>-->
-	</div>	
-	
+	</div>
+
 	<!--Google Maps APIv3 Background-->
 	<div id="canvas_holder">
 		<div id="map_canvas" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 	</div><!-- End Google Maps Background -->
-	
+
+
+    <-- SCRIPTS NEEDED -->
+
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="js/vendor/jquery.ui.widget.js"></script>
+    <!-- The Templates plugin is included to render the upload/download listings -->
+    <script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <!-- blueimp Gallery script -->
+    <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="js/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="js/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="js/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="js/jquery.fileupload-image.js"></script>
+    <!-- The File Upload audio preview plugin -->
+    <script src="js/jquery.fileupload-audio.js"></script>
+    <!-- The File Upload video preview plugin -->
+    <script src="js/jquery.fileupload-video.js"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="js/jquery.fileupload-validate.js"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="js/jquery.fileupload-ui.js"></script>
+    <!-- The main application script -->
+    <script src="js/main.js"></script>
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+    <!--[if (gte IE 8)&(lt IE 10)]>
+    <script src="js/cors/jquery.xdr-transport.js"></script>
+    <![endif]-->
+<-- END SCRIPTS NEEDED -->
+
 </body>
 </html>
