@@ -1,6 +1,33 @@
 /*
  Global
  */
+/*
+ onLoad
+ */
+$(function () {
+
+    navigator.geolocation.getCurrentPosition(initialize());
+
+    $("#zo").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() - 1);
+        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
+    });
+
+    $("#zi").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() + 1);
+    });
+
+    $("#gt").click(function (event) {
+        event.preventDefault();
+        var lt1 = new google.maps.LatLng(36.114739, -115.171840);
+        //map.setZoom( 16 );
+        map.panTo(lt1);
+    });
+
+});
+
 var map;
 
 function initialize(position) {
@@ -116,31 +143,3 @@ function updateCurLatLong(event) {
     curLatLng = event.latLng;
     //console.log(curLatLng);
 }
-
-
-/*
- onLoad
- */
-$(function () {
-
-    navigator.geolocation.getCurrentPosition(initialize());
-
-    $("#zo").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() - 1);
-        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
-    });
-
-    $("#zi").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() + 1);
-    });
-
-    $("#gt").click(function (event) {
-        event.preventDefault();
-        var lt1 = new google.maps.LatLng(36.114739, -115.171840);
-        //map.setZoom( 16 );
-        map.panTo(lt1);
-    });
-
-});
