@@ -126,6 +126,12 @@
 			});
 			
 			infoWindow.open(map,marker);
+
+			google.maps.event.addListener(map, 'mousemove', function(event){
+				curLatLng = event.latLng;
+				//console.clear();
+				console.log(curLatLng);
+			});
 	
 	
 		}//end initialize
