@@ -5,6 +5,8 @@ var map;
 
 function initialize(position) {
 
+    console.log("Hello World");
+
     /*
      Basic Setup
      */
