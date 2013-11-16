@@ -6,7 +6,7 @@
  */
 $(function () {
 
-    navigator.geolocation.getCurrentPosition(initialize());
+    navigator.geolocation.getCurrentPosition(initialize);
 
     $("#zo").click(function (event) {
         event.preventDefault();
@@ -31,8 +31,6 @@ $(function () {
 var map;
 
 function initialize(position) {
-
-    console.log("Hello World");
 
     /*
      Basic Setup
