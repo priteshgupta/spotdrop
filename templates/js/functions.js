@@ -1,16 +1,15 @@
-
 /*
  Global
  */
 var map;
 
-function initialize() {
+function initialize(position) {
 
     /*
      Basic Setup
      */
 
-    var latLng = new google.maps.LatLng(39.8282,-98.5795);
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var stylez = [
         {
@@ -56,11 +55,11 @@ function initialize() {
      animation: google.maps.Animation.DROP
 
      */
-    var markerlatlng = new google.maps.LatLng(39.8282,-98.5795);
+    var markerlatlng = new google.maps.LatLng(39.8282, -98.5795);
 
     var marker = new google.maps.Marker({
         position: markerlatlng,
-        title:"Hello World!"
+        title: "Hello World!"
     });
 
     marker.setMap(map);
@@ -76,43 +75,42 @@ function initialize() {
 
     infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
 
-    google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.open(map,marker);
+    google.maps.event.addListener(marker, 'click', function () {
+        infoWindow.open(map, marker);
     });
 
-    google.maps.event.addListener(marker, 'dragstart', function(){
+    google.maps.event.addListener(marker, 'dragstart', function () {
         infoWindow.close();
     });
 
-    infoWindow.open(map,marker);
+    infoWindow.open(map, marker);
 
-    google.maps.event.addListener(map, 'mousemove', function(event){
+    google.maps.event.addListener(map, 'mousemove', function (event) {
         updateCurLatLong(event);
     });
 
 
 }//end initialize
 
-function allowDrop(ev){
+function allowDrop(ev) {
     ev.preventDefault();
     updateCurLatLong(ev);
 }
 
 
-function drop(ev)
-{
+function drop(ev) {
     ev.preventDefault();
     var marker = new google.maps.Marker({
         position: curLatLng,
         map: map,
-        title:"Hello World!"
+        title: "Hello World!"
     });
     console.log(curLatLng);
     //var data=ev.dataTransfer.getData("Text");
     //ev.target.appendChild(document.getElementById(data));
 }
 
-function updateCurLatLong(event){
+function updateCurLatLong(event) {
     curLatLng = event.latLng;
     //console.log(curLatLng);
 }
@@ -121,21 +119,22 @@ function updateCurLatLong(event){
 /*
  onLoad
  */
-$(function(){
-    initialize();
+$(function () {
 
-    $("#zo").click(function(event){
+    navigator.geolocation.getCurrentPosition(initialize());
+
+    $("#zo").click(function (event) {
         event.preventDefault();
-        map.setZoom( map.getZoom()-1 );
+        map.setZoom(map.getZoom() - 1);
         //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
     });
 
-    $("#zi").click(function(event){
+    $("#zi").click(function (event) {
         event.preventDefault();
-        map.setZoom( map.getZoom()+1 );
+        map.setZoom(map.getZoom() + 1);
     });
 
-    $("#gt").click(function(event){
+    $("#gt").click(function (event) {
         event.preventDefault();
         var lt1 = new google.maps.LatLng(36.114739, -115.171840);
         //map.setZoom( 16 );
