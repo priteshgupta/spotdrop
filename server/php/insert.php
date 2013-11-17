@@ -36,7 +36,7 @@ switch ($type) {
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
 
-        $sql = "insert into sdrop_text (text, lat, lng) values ('$status', '$lat', '$long')";
+        $sql = "insert into sdrop_text (sname, lat, lng) values ('$status', '$lat', '$long')";
         $result = mysql_query($sql, $link);
 
         if ($result) {
