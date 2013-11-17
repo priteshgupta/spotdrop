@@ -80,7 +80,7 @@ function initialize(position) {
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
-        zoom: 15,
+        zoom: 14,
         center: latLng,
         mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
         mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
