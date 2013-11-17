@@ -184,8 +184,8 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 });
 
 function isWithinBounds(marker1, marker2){
-    var sw = google.maps.LatLng(marker1.getPosition().lat() - 0.025, marker1.getPosition().lng() - 0.025);
-    var ne = google.maps.LatLng(marker1.getPosition().lat() + 0.025, marker1.getPosition().lng() + 0.025);
+    var sw = new google.maps.LatLng(marker1.getPosition().lat() - 0.025, marker1.getPosition().lng() - 0.025);
+    var ne = new google.maps.LatLng(marker1.getPosition().lat() + 0.025, marker1.getPosition().lng() + 0.025);
     console.log(sw.toString());
     console.log(ne.toString());
     var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
