@@ -167,10 +167,20 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
 
     $('#fileupload').bind('fileuploadfail', function (e, failData) {
         if(addData.files[0] === failData.files[0]){
-            console.log("removing file " + failData.files[0].name);
+            //console.log("removing file " + failData.files[0].name);
             removeMarker(marker);
         }
     });
+
+    $('#fileupload').bind('fileuploaddone', function (e, data) {
+        console.log("successful upload");
+        console.log(e);
+        console.log(data);
+        $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: "FILE_NAME", 
+            lat: marker.position.lat(), long: marker.position.lng() 
+        });
+    });
+
 });
 
 function removeMarker(marker){
