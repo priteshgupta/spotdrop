@@ -4,13 +4,13 @@
 /*
  onLoad
  */
- $(function () {
+$(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 
-    setInterval(function(){
+    setInterval(function () {
         console.log(allMarkers);
 
-        $.get( "server/php/return.php?type=file", function(Data) {
+        $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
             updateView(data);
 
@@ -18,28 +18,29 @@
     }, 2000);
 });
 
- var data;
- var map;
- var newPins = new Array();
- var iconBase = 'https://maps.google.com/mapfiles/';
- var allMarkers = [];
+var data;
+var map;
+var newPins = new Array();
+var iconBase = 'https://maps.google.com/mapfiles/';
+var allMarkers = [];
 
- function initialize(position) {
+function initialize(position) {
     /*
-    Basic Setup
-    */
+     Basic Setup
+     */
 //    console.log("Lat is " + position.coords.latitude);
 //    console.log("Long is " + position.coords.longitude);
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var stylez = [
-    {
-        featureType: "all",
-        elementType: "all",
-        stylers: [
-            { saturation: -100 }, // <-- THIS
-            { lightness: -20 }
-        ]
-    }];
+        {
+            featureType: "all",
+            elementType: "all",
+            stylers: [
+                { saturation: -100 }, // <-- THIS
+                { lightness: -20 }
+            ]
+        }
+    ];
 
     var myOptions = {
         panControl: false,
@@ -78,7 +79,7 @@
      */
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-     var marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
         icon: iconBase + 'arrow.png'
@@ -93,21 +94,21 @@
      */
 
     /*myInfoWindowOptions = {
-        content: '<div class="info-window-content"><h4>Hello! I am a Google Map custom marker</h4></div>',
-        maxWidth: 275
-    };
+     content: '<div class="info-window-content"><h4>Hello! I am a Google Map custom marker</h4></div>',
+     maxWidth: 275
+     };
 
-    infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
+     infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
 
-    google.maps.event.addListener(marker, 'click', function () {
-        infoWindow.open(map, marker);
-    });
+     google.maps.event.addListener(marker, 'click', function () {
+     infoWindow.open(map, marker);
+     });
 
-    google.maps.event.addListener(marker, 'dragstart', function () {
-        infoWindow.close();
-    });
+     google.maps.event.addListener(marker, 'dragstart', function () {
+     infoWindow.close();
+     });
 
-    infoWindow.open(map, marker); */
+     infoWindow.open(map, marker); */
 
     google.maps.event.addListener(map, 'mousemove', function (event) {
         updateCurLatLong(event);
@@ -127,8 +128,8 @@
     $("#gt").click(function (event) {
         event.preventDefault();
         var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            //map.setZoom( 16 );
-            map.panTo(lt1);
+        //map.setZoom( 16 );
+        map.panTo(lt1);
     });
 
 
@@ -143,7 +144,7 @@ function updateCurLatLong(event) {
     curLatLng = event.latLng;
 }
 
-$('#fileupload').bind('fileuploadadd', function(e, addData){
+$('#fileupload').bind('fileuploadadd', function (e, addData) {
     var marker = new google.maps.Marker({
         position: curLatLng,
         map: map,
@@ -152,7 +153,7 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
     });
 
     $('#fileupload').bind('fileuploadfail', function (e, failData) {
-        if(addData.files[0] === failData.files[0]){
+        if (addData.files[0] === failData.files[0]) {
             //console.log("removing file " + failData.files[0].name);
             removeMarker(marker);
         }
@@ -162,8 +163,8 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
 //        console.log("successful upload of "+data.files[0].name);
         //console.log(e);
         //console.log(data);
-        $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name, 
-            lat: marker.position.lat(), long: marker.position.lng() 
+        $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
+            lat: marker.position.lat(), long: marker.position.lng()
         });
         marker.icon = iconBase + 'kml/paddle/grn-circle.png';
 
@@ -171,27 +172,34 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
 
 });
 
-function removeMarker(marker){
+function removeMarker(marker) {
     marker.setMap(null);
     marker = null;
 }
 
-function addMarker(marker){
-    
+function addMarker(marker) {
+
 }
 
-function updateView(data){
+function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-        var marker = new google.maps.Marker({
-            position: obj,
-            map: map,
-            draggable: true,
-            animation: google.maps.Animation.DROP
-        });
 
-        if(allMarkers.indexOf(marker) == -1){
-            allMarkers.push(marker);
+        for (var j = 0; j < allMarkers.length; j++) {
+
+            if (allMarkers[j].position.ob !== data[i].position.ob) {
+                var marker = new google.maps.Marker({
+                    position: obj,
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP
+                });
+
+                allMarkers.push(marker);
+
+            }
+
         }
+
     }
 }
