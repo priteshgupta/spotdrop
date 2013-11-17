@@ -62,7 +62,7 @@ a{
     opacity: 0.9;
 }
 .files {
-    border-color: rgba(55,55,55, 1.0);
+    border-color: rgba(0,0,0, 1.0);
 }
 .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
     background-color: rgba(55,55,55, 1.0);
