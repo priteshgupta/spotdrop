@@ -87,6 +87,8 @@ function initialize(position) {
         icon: iconBase + 'arrow.png'
     });
 
+    addInfoWindow(marker, "<h3>Me</h3>");
+
     allMarkers.push(marker);
 
     marker.setMap(map);
