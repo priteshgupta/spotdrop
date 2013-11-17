@@ -265,7 +265,7 @@ $('.status_push').bind('click', function(event) {
 
     console.log(status);
 
-    $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), long: allMarkers[0].position.lng()});
+    $.post('server/php/insert.php?type=text', {statusText:status, lat: allMarkers[0].position.lat(), long: allMarkers[0].position.lng()});
 
     event.preventDefault();
 });

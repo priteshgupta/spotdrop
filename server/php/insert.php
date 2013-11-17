@@ -29,7 +29,7 @@ switch ($type) {
         break;
 
     case 'text': // Else if a status upload
-        $ststext = $_POST['status']; // File name
+        $ststext = $_POST['statusText']; // File name
         $lat = $_POST['lat']; // Latitude
         $long = $_POST['long']; // Longitude
 
