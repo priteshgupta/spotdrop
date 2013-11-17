@@ -9,7 +9,7 @@
 
 
 
-    setInterval(function(){
+//    setInterval(function(){
         $.get( "server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
 //            console.log("updating view");
@@ -20,7 +20,7 @@
            updateView(data);
 
         });
-    }, 500000000000000000000);
+//    }, 500);
 });
 
  var data;
