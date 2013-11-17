@@ -140,8 +140,7 @@ function drop(ev) {
     newPins.push(marker);
     console.log(curLatLng);
 
-    $('#fileupload').fileupload(
-        fail: function (e, data) {
+    $('#fileupload').bind('fileuploadfail', function (e, data) {
             alert('failed');
         }
     );
