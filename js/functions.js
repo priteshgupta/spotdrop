@@ -266,6 +266,7 @@ function addInfoWindow(marker, html){
     google.maps.event.addListener(marker, 'mouseout', function() {
         iWin.close();
     });
+    return iWin;
 }
 
 function addDownload(marker, filename){
@@ -287,6 +288,9 @@ $('.status_push').bind('click', function(event) {
     console.log(status);
 
     $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), long: allMarkers[0].position.lng()});
+
+    win = addInfoWindow(allMarkers[0], status);
+    win.open();
 
     event.preventDefault();
 });
