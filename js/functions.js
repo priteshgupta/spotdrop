@@ -8,11 +8,11 @@ $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 
     setInterval(function () {
-        console.log(allMarkers);
+        //console.log(allMarkers);
 
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
-            console.log(data);
+            //console.log(data);
             updateView(data);
 
         });
@@ -187,6 +187,8 @@ function isWithinBounds(marker1, marker2){
     var sw = google.maps.LatLng(marker1.position.lat - 0.025, marker1.position.lng - 0.025);
     var ne = google.maps.LatLng(marker1.position.lat + 0.025, marker1.position.lng + 0.025);
     var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
+    console.log(marker1Bounds);
+    console.log(marker2);
     return marker1Bounds.contains(marker2.position);
 }
 
@@ -215,9 +217,7 @@ function addMarker(obj, draggable, title) {
     }
 
     allMarkers.push(marker);
-    console.log("about to add InfoWindow");
     addInfoWindow(marker, "<p>" + title + "</p>");
-    console.log("returning new marker");
     return marker;
 }
 
