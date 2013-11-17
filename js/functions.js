@@ -27,6 +27,8 @@
  var map;
  var newPins = new Array();
  var iconBase = 'https://maps.google.com/mapfiles/';
+var allMarkers = [];
+
  function initialize(position) {
     /*
     Basic Setup
@@ -87,6 +89,8 @@
         title: "I am here!",
         icon: iconBase + 'arrow.png'
     });
+
+     allMarkers.push(marker);
 
      marker.setMap(map);
 
@@ -185,20 +189,25 @@ function updateView(data){
         if (data[i -1] !== undefined) {
             if (data[i].id !== data[i -1].id) {
 
-                new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     position: obj,
                     map: map,
                     draggable: true,
                     animation: google.maps.Animation.DROP
                 });
+
+                allMarkers.push(marker);
+
             }
         } else {
-            new google.maps.Marker({
+            var market = new google.maps.Marker({
                 position: obj,
                 map: map,
                 draggable: true,
                 animation: google.maps.Animation.DROP
             });
+
+            allMarkers.push(marker);
         }
     }
 }
