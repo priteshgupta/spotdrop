@@ -1204,9 +1204,6 @@ class UploadHandler
     }
 
     public function get($print_response = true) {
-
-        $print_response = false;
-
         if ($print_response && isset($_GET['download'])) {
             return $this->download();
         }
@@ -1216,9 +1213,9 @@ class UploadHandler
                 $this->get_singular_param_name() => $this->get_file_object($file_name)
             );
         } else {
-            $response = array(
-                $this->options['param_name'] => $this->get_file_objects()
-            );
+//            $response = array(
+//                $this->options['param_name'] => $this->get_file_objects()
+//            );
         }
         return $this->generate_response($response, $print_response);
     }
