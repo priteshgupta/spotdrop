@@ -6,6 +6,7 @@
 * To change this template use File | Settings | File Templates.
 */
 
+/*
 // Function to read status texts
 $(function() {
     var data;
@@ -32,17 +33,20 @@ $(function() {
     }
 
 });
+*/
 
 // Function to read files
 $(function() {
     var data;
 
     setInterval(function(){
-        $.get( "../server/php/return.php?type=file", function(Data) {
+        $.get( "server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
             console.log("file data");
             console.log(data);
         });
+
+
         console.log("asdf file");
     }, 500);
 
