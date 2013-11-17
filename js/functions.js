@@ -10,6 +10,7 @@ $(function () {
 
 var map;
 var newPins = new Array();
+var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 function initialize(position) {
 
@@ -70,11 +71,10 @@ function initialize(position) {
      */
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	
-	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-		icon: iconBase + 'schools_maps.png'
+		icon: iconBase + 'arrow.png'
     });
 
     marker.setMap(map);
