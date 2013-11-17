@@ -13,14 +13,14 @@ $(function () {
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
             //console.log(data);
-            updateView(data, file);
+            updateView(data, "file");
 
         });
 
         $.get("server/php/return.php?type=text", function (Data) {
             status_data = JSON.parse(Data);
             //console.log(data);
-            updateView(status_data, text);
+            updateView(status_data, "text");
 
         });
 
