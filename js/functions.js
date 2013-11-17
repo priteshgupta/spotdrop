@@ -146,8 +146,8 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng, true).setIcon(redMarker);
-
+    var marker = addMarker(curLatLng, true);
+    marker.setIcon(redMarker);
     if(marker !== null){
 
         $('#fileupload').bind('fileuploadfail', function (e, failData) {
