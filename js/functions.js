@@ -145,7 +145,7 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng, true);
+    var marker = addMarker(curLatLng, true, addData.files[0].name);
     marker.setIcon(redMarker);
     if(marker !== null){
 
@@ -171,7 +171,7 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(obj, draggable) {
+function addMarker(obj, draggable, title) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -188,7 +188,7 @@ function addMarker(obj, draggable) {
 
     allMarkers.push(marker);
     console.log("about to add InfoWindow");
-    addInfoWindow(marker, "<p>test</p>");
+    addInfoWindow(marker, "<p>" + title + "</p>");
     console.log("returning new marker");
     return marker;
 }
@@ -196,7 +196,7 @@ function addMarker(obj, draggable) {
 function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-        addMarker(obj, false);
+        addMarker(obj, false, data[i].file);
     }
 }
 
@@ -204,7 +204,7 @@ $("#hidden-text").delay(5000).fadeOut(400);
 
 function addInfoWindow(marker, html){
     var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html});
-    
+
     google.maps.event.addListener(marker, 'click', function() {
         iWin.open(map,marker);
     });
