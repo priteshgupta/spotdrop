@@ -18,7 +18,11 @@ switch ($type) {
 
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
-        $sql   = "insert into sdrop (fname, lat, lng) values (\"$fname\", $lat, $long)";
+        $sql   = "INSERT INTO sdrop (fname, lat, lng) VALUES ('$fname','$lat','$long')";
+        if (!mysqli_query($link,$sql))
+        {
+            die('Error: ' . mysqli_error($link));
+        }
         break;
 
     case 'text':    // Else if a status upload
@@ -32,7 +36,6 @@ switch ($type) {
         break;
 }
 
-mysql_query($sql, $link);
 
 // Close the link
 mysql_close($link);
