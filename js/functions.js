@@ -17,6 +17,14 @@ $(function () {
 
         });
     }, 3000);
+
+
+    $('.status_push').bind('click', function() {
+        console.log("No, I am coming here")
+    });
+
+
+
 });
 
 var data;
@@ -244,3 +252,10 @@ function addInfoWindow(marker, html){
         iWin.close();
     });
 }
+
+/** STATUS STUFF GOES HERE **/
+
+$('.status_push').bind('click', function() {
+    console.log("I am coming here")
+});
+
