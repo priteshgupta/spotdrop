@@ -176,11 +176,11 @@ function removeMarker(marker){
 
 function updateView(data){
     for (var i = 0; i < data.length; i++) {
-        var obj = new LatLng(data[i].lat, data[i].long);
+        var obj = new google.maps.LatLng(data[i].lat, data[i].long);
 
         if (data[i -1] !== undefined) {
             if (data[i].id !== data[i -1].id) {
-                
+
                 new google.maps.Marker({
                     position: obj,
                     map: map,
