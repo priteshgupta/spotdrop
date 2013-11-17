@@ -36,6 +36,9 @@ function initialize(position) {
      Basic Setup
      */
 
+    console.log("Lat is " + position.coords.latitude);
+    console.log("Long is " + position.coords.longitude);
+
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var stylez = [
