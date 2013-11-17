@@ -10,7 +10,7 @@ $(function () {
 
 var map;
 var newPins = new Array();
-var iconBase = 'https://maps.google.com/mapfiles';
+var iconBase = 'https://maps.google.com/mapfiles/';
 
 function initialize(position) {
 
