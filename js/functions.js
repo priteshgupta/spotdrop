@@ -25,6 +25,14 @@ var newPins = new Array();
 var iconBase = 'https://maps.google.com/mapfiles/';
 var allMarkers = [];
 
+var bluMarker = {
+	url: 'https://maps.google.com/mapfiles/kml/paddle/blu-circle.png',
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
+    scaledSize: new google.maps.Size(32, 32)
+};
+
 var redMarker = {
     url: 'https://maps.google.com/mapfiles/kml/paddle/red-circle.png',
     //size: new google.maps.Size(64, 64),
@@ -159,7 +167,14 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 
         $('#fileupload').bind('fileuploaddone', function (e, data) {
             marker.setDraggable(false);
-            marker.setIcon(grnMarker);
+			if(function)
+			{
+				marker.setIcon(bluMarker);
+			}
+			else
+			{
+				marker.setIcon(grnMarker);
+			}
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
             });
