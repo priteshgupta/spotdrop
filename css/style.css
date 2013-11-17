@@ -64,11 +64,15 @@ a{
 .files {
     border-color: rgba(0,0,0, 1.0);
 }
-.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th, {
-    background-color: rgba(55,55,55, 1.0) !important;
-}
+/*.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th, {*/
+    /*background-color: rgba(55,55,55, 1.0) !important;*/
+/*}*/
 
-.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th, {
+/*.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th, {*/
+    /*background-color: rgba(55,55,55, 1.0) !important;*/
+/*}*/
+
+td {
     background-color: rgba(55,55,55, 1.0) !important;
 }
 
