@@ -8,11 +8,20 @@ $(function () {
 
     navigator.geolocation.getCurrentPosition(initialize);
 
-    console.log(navigator.geolocation.getCurrentPosition)
 
-    console.log(navigator.geolocation.getCurrentPosition.coords.latitude)
-    
-    console.log(navigator.geolocation.getCurrentPosition.coords.longitude)
+
+});
+
+var map;
+
+function initialize(position) {
+
+    /*
+     Basic Setup
+     */
+
+    console.log("Lat is " + position.coords.latitude);
+    console.log("Long is " + position.coords.longitude);
 
     $("#zo").click(function (event) {
         event.preventDefault();
@@ -27,23 +36,10 @@ $(function () {
 
     $("#gt").click(function (event) {
         event.preventDefault();
-        var lt1 = new google.maps.LatLng(36.114739, -115.171840);
+        var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         //map.setZoom( 16 );
         map.panTo(lt1);
     });
-
-});
-
-var map;
-
-function initialize(position) {
-
-    /*
-     Basic Setup
-     */
-
-    console.log("Lat is " + position.coords.latitude);
-    console.log("Long is " + position.coords.longitude);
 
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -68,8 +64,8 @@ function initialize(position) {
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
-        zoom: 8,
-        center: latLng,
+        zoom: 6,
+        center: latLng
     };
 
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
