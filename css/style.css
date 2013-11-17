@@ -49,3 +49,9 @@ a{
 .row.fileupload-buttonbar {
     display: none;
 }
+
+.table.table-striped {
+    position: fixed;
+    bottom: -20px;
+    opacity: 0.8;
+}
