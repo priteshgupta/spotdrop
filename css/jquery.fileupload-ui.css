@@ -33,7 +33,7 @@
 }
 .files audio,
 .files video {
-    max-width: 300px;
+    max-width: 80px;
 }
 
 @media (max-width: 767px) {
