@@ -186,7 +186,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 function isWithinBounds(marker1, marker2){
     var sw = google.maps.LatLng(marker1.position.lat - 0.025, marker1.position.lng - 0.025);
     var ne = google.maps.LatLng(marker1.position.lat + 0.025, marker1.position.lng + 0.025);
-    var marker1Bounds = google.maps.LatLngBounds(sw, ne);
+    var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
     return marker1Bounds.contains(marker2.position);
 }
 
