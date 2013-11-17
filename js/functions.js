@@ -154,3 +154,16 @@ function drop(ev) {
 function updateCurLatLong(event) {
     curLatLng = event.latLng;
 }
+
+$('#fileupload').fileupload({
+        previewSourceMaxFileSize: 0,
+        //acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|svg|wmv|avi|mpe?g|mp4|ppt|pps)$/i,
+        global:false,
+        singleFileUploads:false, //set this to false to handle multi files upload behaviour
+        add:function (e, data) {
+            $.each(data.files, function (index, file) {
+                alert('Added file: ' + index + " -- " + file.name);
+            });
+        },
+        autoUpload: false
+    });
