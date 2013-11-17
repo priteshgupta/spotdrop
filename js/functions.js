@@ -27,17 +27,17 @@ var allMarkers = [];
 
 var redMarker = {
     url: 'https://maps.google.com/mapfiles/kml/paddle/red-circle.png',
-    size: new google.maps.Size(64, 64),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(16, 32),
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
     scaledSize: new google.maps.Size(32, 32)
 };
 
 var grnMarker = {
     url: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png',
-    size: new google.maps.Size(64, 64),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(16, 32),
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
     scaledSize: new google.maps.Size(32, 32)
 };
 
@@ -203,9 +203,12 @@ function updateView(data) {
 $("#hidden-text").delay(5000).fadeOut(400);
 
 function addInfoWindow(marker, html){
-    var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html});
+    var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html, });
 
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {
         iWin.open(map,marker);
+    });
+    google.maps.event.addListener(marker, 'mouseout', function() {
+        iWin.close();
     });
 }
