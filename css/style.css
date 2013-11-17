@@ -35,7 +35,7 @@ iframe {
 #holder{
     background: rgba(55,55,55, 1.0);
     width:100%;
-	left: 5px;
+	left: 25px;
     height: 70px;
     z-index: 100;
     position:relative;
