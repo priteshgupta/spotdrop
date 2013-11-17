@@ -515,7 +515,7 @@
         _cancelHandler: function (e) {
             console.log("_cancelHandler called");
             var pinToRemove = newPins.pop();
-            pinToRemove.map = null;
+            pinToRemove.setMap(null);
             pinToRemove = null;
             e.preventDefault();
             var template = $(e.currentTarget)
