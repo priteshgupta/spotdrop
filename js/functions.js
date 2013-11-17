@@ -12,6 +12,7 @@ $(function () {
 
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
+            console.log(data);
             updateView(data);
 
         });
@@ -118,7 +119,6 @@ function initialize(position) {
     $("#zo").click(function (event) {
         event.preventDefault();
         map.setZoom(map.getZoom() - 1);
-        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
     });
 
     $("#zi").click(function (event) {
@@ -129,7 +129,6 @@ function initialize(position) {
     $("#gt").click(function (event) {
         event.preventDefault();
         var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        //map.setZoom( 16 );
         map.panTo(lt1);
     });
 
@@ -157,10 +156,8 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
         });
 
         $('#fileupload').bind('fileuploaddone', function (e, data) {
-            console.log("setting draggable to false");
             marker.setDraggable(false);
             marker.setIcon(grnMarker);
-            console.log("now updating server");
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
             });
@@ -197,18 +194,8 @@ function addMarker(obj, draggable) {
 function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-        //console.log(allMarkers);
-        //console.log(data);
         addMarker(obj, false);
     }
 }
-
-/*$("#holder").mouseenter(function(){
-    $("#hidden-text").fadeIn(400);
-});
-
-$("#holder").mouseleave(function(){
-    $("#hidden-text").fadeOut(400);
-});*/
 
 $("#hidden-text").delay(5000).fadeOut(400);
