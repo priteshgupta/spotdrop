@@ -249,7 +249,7 @@ function addInfoWindow(marker, html){
 /** STATUS STUFF GOES HERE **/
 
 $('.status_push').bind('click', function(event) {
-    $.post('server/php/insert.php?type=text', {status:$('.status').val(), lat: "sas", lng: "sda"});
+    $.post('server/php/insert.php?type=text', {status:"Hello....", lat: "sas", lng: "sda"});
     console.log("I am coming here");
     event.preventDefault();
 });
