@@ -176,6 +176,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 			if(isWithinBounds(allMarkers[0], marker))
 			{
 				marker.setIcon(bluMarker);
+                addDownload(marker, data.files[0].name);
 			}
 			else
 			{
@@ -201,7 +202,7 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(obj, draggable, title) {
+function addMarker(obj, draggable, filename) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -218,10 +219,11 @@ function addMarker(obj, draggable, title) {
 
     if(isWithinBounds(allMarkers[0], marker)){
         marker.setIcon(bluMarker);
+        addDownload(marker, filename);
     }
 
     allMarkers.push(marker);
-    addInfoWindow(marker, "<p>" + title + "</p>");
+    addInfoWindow(marker, "<p>" + filename + "</p>");
     return marker;
 }
 
@@ -242,5 +244,11 @@ function addInfoWindow(marker, html){
     });
     google.maps.event.addListener(marker, 'mouseout', function() {
         iWin.close();
+    });
+}
+
+function addDownload(marker, filename){
+    google.maps.event.addListener(map, 'mouseclick', function (event) {
+        window.location = 'server/php/files/' + filename;
     });
 }
