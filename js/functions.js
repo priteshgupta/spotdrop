@@ -252,9 +252,9 @@ function addInfoWindow(marker, html){
 
 function addDownload(marker, filename){
     console.log("adding download listener for " + filename);
-    google.maps.event.addListener(marker, 'mouseclick', function () {
+    google.maps.event.addListener(marker, 'mouseover', function () {
         console.log("trying to download "+filename);
-        window.location = 'server/php/files/' + filename;
+        //window.location = 'server/php/files/' + filename;
     });
 }
 /** STATUS STUFF GOES HERE **/
