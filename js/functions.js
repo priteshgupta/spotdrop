@@ -187,8 +187,9 @@ function addMarker(obj, draggable) {
     });
 
     allMarkers.push(marker);
+    console.log("about to add InfoWindow");
     addInfoWindow(marker, "<p>test</p>");
-
+    console.log("returning new marker");
     return marker;
 }
 
