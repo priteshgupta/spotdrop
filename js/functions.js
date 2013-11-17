@@ -249,7 +249,7 @@ function addInfoWindow(marker, html){
 }
 
 function addDownload(marker, filename){
-    google.maps.event.addListener(map, 'mouseclick', function (event) {
+    google.maps.event.addListener(marker, 'mouseclick', function (event) {
         window.location = 'server/php/files/' + filename;
     });
 }
