@@ -256,7 +256,10 @@ function addDownload(marker, filename){
 /** STATUS STUFF GOES HERE **/
 
 $('.status_push').bind('click', function(event) {
-    $.post('server/php/insert.php?type=text', {status:"Hello....", lat: "sas", lng: "sda"});
-    console.log("I am coming here");
+
+    var status = $('.status').val();
+
+    $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), lng: allMarkers[0].position.lng()});
+
     event.preventDefault();
 });
