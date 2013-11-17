@@ -8,10 +8,11 @@ $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 
     setInterval(function () {
-        console.log(allMarkers);
+        //console.log(allMarkers);
 
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
+            //console.log(data);
             updateView(data);
 
         });
@@ -24,19 +25,27 @@ var newPins = new Array();
 var iconBase = 'https://maps.google.com/mapfiles/';
 var allMarkers = [];
 
+var bluMarker = {
+	url: 'https://maps.google.com/mapfiles/kml/paddle/blu-circle.png',
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
+    scaledSize: new google.maps.Size(32, 32)
+};
+
 var redMarker = {
     url: 'https://maps.google.com/mapfiles/kml/paddle/red-circle.png',
-    size: new google.maps.Size(64, 64),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(16, 32),
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
     scaledSize: new google.maps.Size(32, 32)
 };
 
 var grnMarker = {
     url: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png',
-    size: new google.maps.Size(64, 64),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(16, 32),
+    //size: new google.maps.Size(64, 64),
+    //origin: new google.maps.Point(0, 0),
+    //anchor: new google.maps.Point(16, 32),
     scaledSize: new google.maps.Size(32, 32)
 };
 
@@ -86,6 +95,8 @@ function initialize(position) {
         icon: iconBase + 'arrow.png'
     });
 
+    addInfoWindow(marker, "<h3>Me</h3>");
+
     allMarkers.push(marker);
 
     marker.setMap(map);
@@ -118,7 +129,6 @@ function initialize(position) {
     $("#zo").click(function (event) {
         event.preventDefault();
         map.setZoom(map.getZoom() - 1);
-        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
     });
 
     $("#zi").click(function (event) {
@@ -129,7 +139,6 @@ function initialize(position) {
     $("#gt").click(function (event) {
         event.preventDefault();
         var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        //map.setZoom( 16 );
         map.panTo(lt1);
     });
 
@@ -146,7 +155,7 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng, true);
+    var marker = addMarker(curLatLng, true, addData.files[0].name);
     marker.setIcon(redMarker);
     if(marker !== null){
 
@@ -157,10 +166,15 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
         });
 
         $('#fileupload').bind('fileuploaddone', function (e, data) {
-            console.log("setting draggable to false");
             marker.setDraggable(false);
-            marker.setIcon(grnMarker);
-            console.log("now updating server");
+			if(isWithinBounds(allMarkers[0], marker))
+			{
+				marker.setIcon(bluMarker);
+			}
+			else
+			{
+				marker.setIcon(grnMarker);
+			}
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
             });
@@ -169,12 +183,21 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 
 });
 
+function isWithinBounds(marker1, marker2){
+    var sw = google.maps.LatLng(marker1.position.lat - 0.025, marker1.position.lng - 0.025);
+    var ne = google.maps.LatLng(marker1.position.lat + 0.025, marker1.position.lng + 0.025);
+    var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
+    console.log(marker1Bounds);
+    console.log(marker2);
+    return marker1Bounds.contains(marker2.position);
+}
+
 function removeMarker(marker) {
     marker.setMap(null);
     marker = null;
 }
 
-function addMarker(obj, draggable) {
+function addMarker(obj, draggable, title) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -189,16 +212,31 @@ function addMarker(obj, draggable) {
         icon: grnMarker
     });
 
-    allMarkers.push(marker);
+    if(isWithinBounds(allMarkers[0], marker)){
+        marker.setIcon(bluMarker);
+    }
 
+    allMarkers.push(marker);
+    addInfoWindow(marker, "<p>" + title + "</p>");
     return marker;
 }
 
 function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-        //console.log(allMarkers);
-        //console.log(data);
-        addMarker(obj, false);
+        addMarker(obj, false, data[i].file);
     }
+}
+
+$("#hidden-text").delay(5000).fadeOut(400);
+
+function addInfoWindow(marker, html){
+    var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html, });
+
+    google.maps.event.addListener(marker, 'mouseover', function() {
+        iWin.open(map,marker);
+    });
+    google.maps.event.addListener(marker, 'mouseout', function() {
+        iWin.close();
+    });
 }
