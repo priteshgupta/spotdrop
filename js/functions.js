@@ -9,7 +9,9 @@
 
 
 
-//    setInterval(function(){
+    setInterval(function(){
+        console.log(allMarkers);
+
         $.get( "server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
 //            console.log("updating view");
@@ -20,7 +22,7 @@
            updateView(data);
 
         });
-//    }, 500);
+    }, 10000);
 });
 
  var data;
