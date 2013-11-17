@@ -10,7 +10,7 @@ $(function () {
 
 var map;
 var newPins = new Array();
-var iconBase = 'http://maps.google.com/mapfiles';
+var iconBase = 'http://www.google.com/mapfiles';
 
 function initialize(position) {
 
@@ -74,7 +74,7 @@ function initialize(position) {
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-		icon: iconBase + 'arrowff.gif'
+		icon: iconBase + 'arrow.png'
     });
 
     marker.setMap(map);
