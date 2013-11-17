@@ -4,32 +4,39 @@
 /*
  onLoad
  */
- $(function () {
+$(function () {
     navigator.geolocation.getCurrentPosition(initialize);
+
+
+
+    setInterval(function(){
+        $.get( "server/php/return.php?type=file", function(Data) {
+            data = JSON.parse(Data);
+            console.log("updating view");
+            console.log(data);
+            updateView(data);
+        });
+    }, 500);
 });
 
- var map;
- var newPins = new Array();
- var iconBase = 'https://maps.google.com/mapfiles/';
-
+var data;
+var map;
+var newPins = new Array();
+var iconBase = 'https://maps.google.com/mapfiles/';
  function initialize(position) {
-
     /*
-     Basic Setup
-     */
-
+    Basic Setup
+    */
      console.log("Lat is " + position.coords.latitude);
-     console.log("Long is " + position.coords.longitude);
-
+    console.log("Long is " + position.coords.longitude);
      var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
      var stylez = [
-     {
-        featureType: "all",
-        elementType: "all",
-        stylers: [
-                { saturation: -100 }, // <-- THIS
-                { lightness: -20 }
+    {
+       featureType: "all",
+       elementType: "all",
+       stylers: [
+              { saturation: -100 }, // <-- THIS
+               { lightness: -20 }
                 ]
             }
             ];
@@ -130,29 +137,6 @@ function allowDrop(ev) {
     updateCurLatLong(ev);
 }
 
-$
-/*
-function drop(ev) {
-    ev.preventDefault();
-    var marker = new google.maps.Marker({
-        position: curLatLng,
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP
-    });
-    //newPins.push(marker);
-    console.log(curLatLng);
-
-    $('#fileupload').bind('fileuploadfail', function (e, data) {
-            $.each(data.files, function (index, file) {
-                console.log("index: " + index+ " name: " + file.name)
-            });
-            //console.log(e);
-            //console.log(data);
-        }
-    );
-}*/
-
 function updateCurLatLong(event) {
     curLatLng = event.latLng;
 }
@@ -188,4 +172,36 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
 function removeMarker(marker){
     marker.setMap(null);
     marker = null;
+}
+
+function updateView(data){
+    for (var i = 0; i < data.length; i++) {
+        if (data[i -1] !== undefined) {
+            if (data[i].id !== data[i -1].id) {
+                var obj = {
+                    ob : data[i].lat,
+                    pb : data[i].long
+                };
+
+                new google.maps.Marker({
+                    position: obj,
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP
+                });
+            }
+        } else {
+            var obj = {
+                ob : data[i].lat,
+                pb : data[i].long
+            };
+
+            new google.maps.Marker({
+                position: obj,
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP
+            });
+        }
+    }
 }
