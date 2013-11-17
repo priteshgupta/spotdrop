@@ -130,7 +130,8 @@ function allowDrop(ev) {
     updateCurLatLong(ev);
 }
 
-
+$
+/*
 function drop(ev) {
     ev.preventDefault();
     var marker = new google.maps.Marker({
@@ -150,14 +151,26 @@ function drop(ev) {
             //console.log(data);
         }
     );
-}
+}*/
 
 function updateCurLatLong(event) {
     curLatLng = event.latLng;
 }
 
 $('#fileupload').fileupload({
-        singleFileUploads: true, //set this to false to handle multi files upload behaviour
-        autoUpload: false,
-        filesContainer: '#files'
-    });
+    singleFileUploads: true, //set this to false to handle multi files upload behaviour
+    autoUpload: false,
+    add: function(e, addData){
+        var marker = new google.maps.Marker({
+            position: curLatLng,
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP
+        });
+
+        $('#fileupload').bind('fileuploadfail', function (e, failData) {
+            console.log(addData);
+            console.log(failData);
+        });
+    }
+});
