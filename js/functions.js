@@ -12,11 +12,15 @@
     setInterval(function(){
         $.get( "server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
-            console.log("updating view");
-            console.log(data);
-            updateView(data);
+//            console.log("updating view");
+//            console.log(data);
+
+
+
+           updateView(data);
+
         });
-    }, 500);
+    }, 500000000000000000000);
 });
 
  var data;
@@ -27,8 +31,8 @@
     /*
     Basic Setup
     */
-    console.log("Lat is " + position.coords.latitude);
-    console.log("Long is " + position.coords.longitude);
+//    console.log("Lat is " + position.coords.latitude);
+//    console.log("Long is " + position.coords.longitude);
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var stylez = [
     {
@@ -157,7 +161,7 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
     });
 
     $('#fileupload').bind('fileuploaddone', function (e, data) {
-        console.log("successful upload of "+data.files[0].name);
+//        console.log("successful upload of "+data.files[0].name);
         //console.log(e);
         //console.log(data);
         $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name, 
