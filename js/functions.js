@@ -143,8 +143,11 @@ function drop(ev) {
     console.log(curLatLng);
 
     $('#fileupload').bind('fileuploadfail', function (e, data) {
-            console.log(e);
-            console.log(data);
+            $.each(data.files, function (index, file) {
+                console.log("index: " + index+ " name: " + file.name)
+            }
+            //console.log(e);
+            //console.log(data);
         }
     );
 }
