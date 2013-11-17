@@ -69,10 +69,12 @@ function initialize(position) {
 
      */
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+	
+	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var marker = new google.maps.Marker({
         position: markerlatlng,
-        title: "I am here!"
+        title: "I am here!",
+		icon: iconBase + 'schools_maps.png'
     });
 
     marker.setMap(map);
