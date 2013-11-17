@@ -48,6 +48,7 @@ function initialize(position) {
         scrollwheel: false,
         zoom: 6,
         center: latLng,
+        mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
         mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
     };
 
