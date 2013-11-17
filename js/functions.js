@@ -83,7 +83,7 @@ function initialize(position) {
      INFO Bubble
      */
 
-    myInfoWindowOptions = {
+    /*myInfoWindowOptions = {
         content: '<div class="info-window-content"><h4>Hello! I am a Google Map custom marker</h4></div>',
         maxWidth: 275
     };
@@ -98,7 +98,7 @@ function initialize(position) {
         infoWindow.close();
     });
 
-    infoWindow.open(map, marker);
+    infoWindow.open(map, marker); */
 
     google.maps.event.addListener(map, 'mousemove', function (event) {
         updateCurLatLong(event);
