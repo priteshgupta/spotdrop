@@ -15,7 +15,7 @@ $(function () {
             updateView(data);
 
         });
-    }, 2000);
+    }, 500);
 });
 
 var data;
