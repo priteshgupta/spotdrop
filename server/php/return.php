@@ -3,23 +3,52 @@
 // Include the database config
 include_once "db.php";
 
-// The query; no PDO for this app :-(
-$sql    = "select * from sdrop";
-$result = mysql_query($sql, $link);
-
 // Master array to return
 $return = array();
 
-// Loop through them
-while ($row = mysql_fetch_assoc($result)) {
-    $data = array(
-        'file' => $row['fname'],
-        'lat'  => $row['lat'],
-        'long' => $row['lng']
-    );
+// Type of request
+$type = $_GET['type'];
 
-    // Push to master array
-    array_push($return, $data);
+switch ($type) {
+    case 'file':    // If a file upload
+        // The query; no PDO for this app :-(
+        $sql    = "select * from sdrop";
+        $result = mysql_query($sql, $link);
+
+        // Loop through them
+        while ($row = mysql_fetch_assoc($result)) {
+
+            $data = array(
+                'id'   => $row['id'],
+                'file' => $row['fname'],
+                'lat'  => $row['lat'],
+                'long' => $row['lng']
+            );
+
+            // Push to master array
+            array_push($return, $data);
+        }
+        break;
+
+    case 'text':    // Else if a status upload
+        // The query; no PDO for this app :-(
+        $sql    = "select * from sdrop_2";
+        $result = mysql_query($sql, $link);
+
+        // Loop through them
+        while ($row = mysql_fetch_assoc($result)) {
+
+            $data = array(
+                'id'   => $row['id'],
+                'text' => $row['status'],
+                'lat'  => $row['lat'],
+                'long' => $row['lng']
+            );
+
+            // Push to master array
+            array_push($return, $data);
+        }
+        break;
 }
 
 // echo json encoded array
