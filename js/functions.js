@@ -187,6 +187,7 @@ function addMarker(obj, draggable) {
     });
 
     allMarkers.push(marker);
+    addInfoWindow(marker, "<p>test</p>");
 
     return marker;
 }
@@ -199,3 +200,8 @@ function updateView(data) {
 }
 
 $("#hidden-text").delay(5000).fadeOut(400);
+
+function addInfoWindow(marker, html){
+    var iWin = new google.maps.infoWindow(content: html);
+    iWin.open(anchor: marker);
+}
