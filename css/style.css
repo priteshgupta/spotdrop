@@ -85,3 +85,7 @@ td {
     display: none !important;
     border-top-color: rgba(0,0,0, 1.0);
 }
+
+.gm-style-iw + div {
+    display: none;
+}
