@@ -38,6 +38,14 @@ switch ($type) {
         $sql = "insert into sdrop (text, lat, lng) values ('$st_text', '$lat', '$long')";
         $result = mysql_query($sql, $link);
 
+        if ($result) {
+            echo "Successful";
+            echo "<BR>";
+            echo "<a href='insert.php'>Back to main page</a>";
+        } else {
+            echo "ERROR";
+        }
+
         break;
 }
 
