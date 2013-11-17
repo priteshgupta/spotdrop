@@ -141,8 +141,8 @@ function drop(ev) {
     console.log(curLatLng);
 
     $('#fileupload').bind('fileuploadfail', function (e, data) {
-            marker.setMap(null);
-            marker = null;
+            console.log(e);
+            console.log(data);
         }
     );
 }
