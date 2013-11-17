@@ -32,5 +32,7 @@ switch ($type) {
         break;
 }
 
+mysql_query($sql, $link);
+
 // Close the link
 mysql_close($link);
