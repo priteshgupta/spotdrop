@@ -184,12 +184,12 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 });
 
 function isWithinBounds(marker1, marker2){
-    var sw = google.maps.LatLng(marker1.position.lat - 0.025, marker1.position.lng - 0.025);
-    var ne = google.maps.LatLng(marker1.position.lat + 0.025, marker1.position.lng + 0.025);
+    var sw = google.maps.LatLng(marker1.getPosition().lat() - 0.025, marker1.getPosition().lng() - 0.025);
+    var ne = google.maps.LatLng(marker1.getPosition().lat() + 0.025, marker1.getPosition().lng() + 0.025);
     var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
     console.log(marker1Bounds.toString());
     console.log(marker2.toString());
-    return marker1Bounds.contains(marker2.position);
+    return marker1Bounds.contains(marker2.getPosition());
 }
 
 function removeMarker(marker) {
