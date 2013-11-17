@@ -253,7 +253,7 @@ function addInfoWindow(marker, html){
 function addDownload(marker, filename){
     console.log("adding download listener for " + filename);
     google.maps.event.addListener(marker, 'click', function (e) {
-        e.preventDefault();
+        e.stop();
         console.log("trying to download "+filename);
         window.location = "server/php/files/" + filename;
     });
