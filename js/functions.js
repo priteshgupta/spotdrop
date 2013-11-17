@@ -13,14 +13,24 @@ $(function () {
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
             //console.log(data);
-            updateView(data);
+            updateView(data, file);
 
         });
+
+        $.get("server/php/return.php?type=text", function (Data) {
+            status_data = JSON.parse(Data);
+            //console.log(data);
+            updateView(status_data, text);
+
+        });
+
+
     }, 3000);
 
 });
 
 var data;
+var status_data;
 var map;
 var newPins = new Array();
 var iconBase = 'https://maps.google.com/mapfiles/';
@@ -230,10 +240,16 @@ function addMarker(obj, draggable, filename) {
     return marker;
 }
 
-function updateView(data) {
+function updateView(data, type) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-        addMarker(obj, false, data[i].file);
+
+        if (type == 'file') {
+            addMarker(obj, false, data[i].file);
+        } else {
+            addMarker(obj, false, data[i].text);
+        }
+
     }
 }
 
