@@ -172,7 +172,7 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng, true, addData.files[0].name);
+    var marker = addMarker(curLatLng, true, 'file', addData.files[0].name);
     marker.setIcon(redMarker);
     if(marker !== null){
 
@@ -214,7 +214,7 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(obj, draggable, filename) {
+function addMarker(obj, draggable, type, filename) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -232,7 +232,9 @@ function addMarker(obj, draggable, filename) {
     if(isWithinBounds(allMarkers[0], marker)){
         marker.setIcon(bluMarker);
         console.log("adding download listener");
-        addDownload(marker, filename);
+        if(type == 'file'){
+            addDownload(marker, filename);
+        }
     }
 
     allMarkers.push(marker);
@@ -245,9 +247,9 @@ function updateView(data, type) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
 
         if (type == 'file') {
-            addMarker(obj, false, data[i].file);
+            addMarker(obj, false, 'file', data[i].file);
         } else {
-            addMarker(obj, false, data[i].text);
+            addMarker(obj, false, 'text', data[i].text);
         }
 
     }
