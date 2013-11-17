@@ -1,7 +1,7 @@
 <?php
 
 // Include the database config
-include_once "db.php";
+//include_once "db.php";
 
 // Type of request
 $type = $_GET['type'];
@@ -12,6 +12,13 @@ var_dump($_POST);
 
 switch ($type) {
     case 'file':    // If a file upload
+
+// Connect to the database
+        $link = mysql_connect('localhost', 'root', 'password');
+
+// No error handling; assume everything is alright. ;-)
+        mysql_select_db('spotdrop', $link);
+
         $fname = $_POST['fname'];   // File name
         $lat   = $_POST['lat'];     // Latitude
         $long  = $_POST['long'];    // Longitude
