@@ -203,6 +203,7 @@ function updateView(data) {
 $("#hidden-text").delay(5000).fadeOut(400);
 
 function addInfoWindow(marker, html){
-    var iWin = new google.maps.InfoWindow(html);
-    iWin.open(marker);
+    var iWin = new google.maps.InfoWindow();
+    iWin.setContent(html);
+    iWin.open(map, marker);
 }
