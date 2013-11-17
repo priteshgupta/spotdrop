@@ -513,6 +513,7 @@
         },
 
         _cancelHandler: function (e) {
+            console.log("_cancelHandler called");
             e.preventDefault();
             var template = $(e.currentTarget)
                     .closest('.template-upload,.template-download'),

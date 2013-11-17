@@ -143,5 +143,4 @@ function drop(ev) {
 
 function updateCurLatLong(event) {
     curLatLng = event.latLng;
-    console.log(curLatLng);
 }
