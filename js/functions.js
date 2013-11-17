@@ -250,6 +250,7 @@ function addInfoWindow(marker, html){
 
 function addDownload(marker, filename){
     google.maps.event.addListener(marker, 'mouseclick', function (event) {
+        console.log("trying to download "+filename);
         window.location = 'server/php/files/' + filename;
     });
 }
