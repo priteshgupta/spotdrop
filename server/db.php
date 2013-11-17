@@ -12,4 +12,25 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 echo 'Connected successfully';
+
+if (!mysql_select_db('spotdrop', $link)) {
+    echo 'Could not select database';
+    exit;
+}
+
+$sql    = 'SELECT * FROM sdrop';
+$result = mysql_query($sql, $link);
+
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['foo'];
+}
+
+mysql_free_result($result);
+
 mysql_close($link);
