@@ -130,7 +130,7 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng, true);
+    var marker = addMarker(curLatLng, true, 'red');
 
     if(marker !== null){
 
@@ -143,6 +143,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
         $('#fileupload').bind('fileuploaddone', function (e, data) {
             console.log("setting draggable to false");
             marker.draggable = false;
+            marker.icon.url = url: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png';
             console.log("now updating server");
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
@@ -157,7 +158,7 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(obj, draggable) {
+function addMarker(obj, draggable, color) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -165,7 +166,7 @@ function addMarker(obj, draggable) {
     }
 
     var image = {
-        url: 'https://maps.google.com/mapfiles/kml/paddle/red-circle.png',
+        url: 'https://maps.google.com/mapfiles/kml/paddle/' + color + '-circle.png',
         size: new google.maps.Size(64, 64),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(16, 32),
@@ -190,6 +191,6 @@ function updateView(data) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
         //console.log(allMarkers);
         //console.log(data);
-        addMarker(obj, false);
+        addMarker(obj, false, 'grn');
     }
 }
