@@ -177,6 +177,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 			if(isWithinBounds(allMarkers[0], marker))
 			{
 				marker.setIcon(bluMarker);
+                console.log("adding download listener");
                 addDownload(marker, data.files[0].name);
 			}
 			else
@@ -220,6 +221,7 @@ function addMarker(obj, draggable, filename) {
 
     if(isWithinBounds(allMarkers[0], marker)){
         marker.setIcon(bluMarker);
+        console.log("adding download listener");
         addDownload(marker, filename);
     }
 
@@ -249,9 +251,10 @@ function addInfoWindow(marker, html){
 }
 
 function addDownload(marker, filename){
-    google.maps.event.addListener(marker, 'mouseclick', function () {
+    console.log("adding download listener for " + filename);
+    google.maps.event.addListener(marker, 'mouseover', function () {
         console.log("trying to download "+filename);
-        window.location = 'server/php/files/' + filename;
+        //window.location = 'server/php/files/' + filename;
     });
 }
 /** STATUS STUFF GOES HERE **/
