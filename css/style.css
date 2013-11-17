@@ -59,7 +59,7 @@ a{
 .table.table-striped {
     position: fixed;
     bottom: -20px;
-    opacity: 1;
+    opacity: 0;
 }
 .files {
     border-color: rgba(0,0,0,0);
