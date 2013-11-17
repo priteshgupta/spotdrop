@@ -185,11 +185,12 @@ function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
 
+        console.log(allMarkers);
         console.log(data);
 
         for (var j = 0; j < allMarkers.length; j++) {
 
-            if (allMarkers[j].position.ob !== data[i].lat) {
+            if (allMarkers[j].position.ob !== data[i].position.ob) {
                 var marker = new google.maps.Marker({
                     position: obj,
                     map: map,
