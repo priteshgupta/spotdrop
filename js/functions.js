@@ -136,7 +136,7 @@ function drop(ev) {
         map: map,
         draggable: true
     });
-    array.push(marker);
+    newPins.push(marker);
     console.log(curLatLng);
 }
 
