@@ -68,5 +68,5 @@ a{
     background-color: rgba(55,55,55, 1.0);
 }
 .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
-    border-top-color: rgba(55,55,55, 1.0);
+    border-top-color: rgba(0,0,0, 1.0);
 }
