@@ -32,7 +32,7 @@ switch ($type) {
 
     case 'text':    // Else if a status upload
         // The query; no PDO for this app :-(
-        $sql    = "select * from sdrop_2";
+        $sql    = "select * from sdrop_text";
         $result = mysql_query($sql, $link);
 
         // Loop through them
@@ -40,7 +40,7 @@ switch ($type) {
 
             $data = array(
                 'id'   => $row['id'],
-                'text' => $row['status'],
+                'text' => $row['sname'],
                 'lat'  => $row['lat'],
                 'long' => $row['lng']
             );
