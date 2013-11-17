@@ -18,11 +18,19 @@ switch ($type) {
 
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
-        $sql   = "INSERT INTO sdrop (fname, lat, lng) VALUES ('Hello','World','Foo')";
-        if (!mysqli_query($link,$sql))
-        {
-            die('Error: ' . mysqli_error($link));
+        $sql = "INSERT INTO sdrop (fname, lat, long) VALUES ('$fname', '$lat', '$long')";
+        $result = mysql_query($sql);
+
+        if($result){
+            echo "Successful";
+            echo "<BR>";
+            echo "<a href='insert.php'>Back to main page</a>";
         }
+
+        else {
+            echo "ERROR";
+        }
+
         break;
 
     case 'text':    // Else if a status upload
