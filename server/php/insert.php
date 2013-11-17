@@ -29,7 +29,7 @@ switch ($type) {
         break;
 
     case 'text': // Else if a status upload
-        $ststext = $_POST['status']; // File name
+        $ststext = $_POST['statusText']; // File name
         $lat = $_POST['lat']; // Latitude
         $long = $_POST['long']; // Longitude
 
@@ -37,6 +37,10 @@ switch ($type) {
 
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
+//        $sql = "insert into sdrop_2 (text, lat, lng) values ('\"$ststext\"', '$lat', '$long')";
+
+        echo $ststext;
+
         $sql = "insert into sdrop_2 (text, lat, lng) values ('$ststext', '$lat', '$long')";
         $result = mysql_query($sql, $link);
 
