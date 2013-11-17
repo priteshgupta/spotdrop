@@ -21,12 +21,22 @@
 </head>
 <body>
 
-	<div id="holder"; div style="font-family:lefont; color: white;">
-	<font size="72";>
-	// Spotdrop //
-		<span id="hidden-text"> drag + drop a file to begin // </span>
-	</font>
-	</div>
+	<div id="holder" div style="font-family:lefont; color: white;">
+        <div style="font-size: 50px; float: left">
+            // Spotdrop //
+            <span id="hidden-text"> drag + drop a file to begin // </span>
+        </div>
+
+        <div style="float: right">
+            <form id="statusupload" method="POST">
+                <textarea name="status" class="status" cols="30" rows="3" style="resize: none; outline: none; margin-top: 2px"></textarea>
+                <button type="submit" class="status_push" style="height: 100%">
+                    <span>Go</span>
+                </button>
+            </form>
+        </div>
+
+    </div>
 
 	<!--Google Maps APIv3 Background-->
 	<div id="canvas_holder">
