@@ -18,7 +18,7 @@ switch ($type) {
 
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
-        $sql   = "insert into sdrop (fname, lat, lng) values ($fname, $lat, $long)";
+        $sql   = "insert into sdrop (fname, lat, lng) values (\"$fname\", $lat, $long)";
         break;
 
     case 'text':    // Else if a status upload
