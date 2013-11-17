@@ -10,6 +10,7 @@ $(function () {
 
 var map;
 var newPins = new Array();
+var iconBase = 'https://maps.google.com/mapfiles';
 
 function initialize(position) {
 
@@ -69,11 +70,11 @@ function initialize(position) {
 
      */
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	var iconBase = 'http://maps.google.com/mapfiles';
+	
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-		icon: iconBase + 'arrow.png'
+	icon: iconBase + 'arrow.png'
     });
 
     marker.setMap(map);
