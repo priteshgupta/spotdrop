@@ -203,7 +203,9 @@ function updateView(data) {
 $("#hidden-text").delay(5000).fadeOut(400);
 
 function addInfoWindow(marker, html){
-    var iWin = new google.maps.InfoWindow();
-    iWin.setContent(html);
-    iWin.open(map, marker);
+    var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html});
+    
+    google.maps.event.addListener(marker, 'click', function() {
+        iWin.open(map,marker);
+    });
 }
