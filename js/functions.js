@@ -4,44 +4,44 @@
 /*
  onLoad
  */
-$(function () {
+ $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 });
 
-var map;
-var newPins = new Array();
-var iconBase = 'https://maps.google.com/mapfiles/';
+ var map;
+ var newPins = new Array();
+ var iconBase = 'https://maps.google.com/mapfiles/';
 
-function initialize(position) {
+ function initialize(position) {
 
     /*
      Basic Setup
      */
 
-    console.log("Lat is " + position.coords.latitude);
-    console.log("Long is " + position.coords.longitude);
+     console.log("Lat is " + position.coords.latitude);
+     console.log("Long is " + position.coords.longitude);
 
-    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-    var stylez = [
-        {
-            featureType: "all",
-            elementType: "all",
-            stylers: [
+     var stylez = [
+     {
+        featureType: "all",
+        elementType: "all",
+        stylers: [
                 { saturation: -100 }, // <-- THIS
                 { lightness: -20 }
-            ]
-        }
-    ];
+                ]
+            }
+            ];
 
-    var myOptions = {
-        panControl: false,
-        zoomControl: false,
-        mapTypeControl: false,
-        scaleControl: false,
-        streetViewControl: false,
-        overviewMapControl: false,
-        draggable: true,
+            var myOptions = {
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false,
+                draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
         zoom: 6,
@@ -69,15 +69,15 @@ function initialize(position) {
      animation: google.maps.Animation.DROP
 
      */
-    var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	
-    var marker = new google.maps.Marker({
+     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-	icon: iconBase + 'arrow.png'
+        icon: iconBase + 'arrow.png'
     });
 
-    marker.setMap(map);
+     marker.setMap(map);
 
     /*
      INFO Bubble
@@ -98,26 +98,26 @@ function initialize(position) {
         infoWindow.close();
     });
 
-    infoWindow.open(map, marker); */
+infoWindow.open(map, marker); */
 
-    google.maps.event.addListener(map, 'mousemove', function (event) {
-        updateCurLatLong(event);
-    });
+google.maps.event.addListener(map, 'mousemove', function (event) {
+    updateCurLatLong(event);
+});
 
-    $("#zo").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() - 1);
+$("#zo").click(function (event) {
+    event.preventDefault();
+    map.setZoom(map.getZoom() - 1);
         //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
     });
 
-    $("#zi").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() + 1);
-    });
+$("#zi").click(function (event) {
+    event.preventDefault();
+    map.setZoom(map.getZoom() + 1);
+});
 
-    $("#gt").click(function (event) {
-        event.preventDefault();
-        var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+$("#gt").click(function (event) {
+    event.preventDefault();
+    var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         //map.setZoom( 16 );
         map.panTo(lt1);
     });
@@ -157,20 +157,16 @@ function updateCurLatLong(event) {
     curLatLng = event.latLng;
 }
 
-$('#fileupload').fileupload({
-    singleFileUploads: true, //set this to false to handle multi files upload behaviour
-    autoUpload: false,
-    add: function(e, addData){
-        var marker = new google.maps.Marker({
-            position: curLatLng,
-            map: map,
-            draggable: true,
-            animation: google.maps.Animation.DROP
-        });
+$('#fileupload').bind('fileuploadadd', function(e, addData){
+    var marker = new google.maps.Marker({
+        position: curLatLng,
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP
+    });
 
-        $('#fileupload').bind('fileuploadfail', function (e, failData) {
-            console.log(addData);
-            console.log(failData);
-        });
-    }
+    $('#fileupload').bind('fileuploadfail', function (e, failData) {
+        console.log(addData);
+        console.log(failData);
+    });
 });

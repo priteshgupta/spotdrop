@@ -86,10 +86,10 @@
             // By default, each file of a selection is uploaded using an individual
             // request for XHR type uploads. Set to false to upload file
             // selections in one request each:
-            singleFileUploads: false,
+            singleFileUploads: true,
             // To limit the number of files uploaded with one XHR request,
             // set the following option to an integer greater than 0:
-            limitMultiFileUploads: 3,
+            limitMultiFileUploads: undefined,
             // The following option limits the number of files uploaded with one
             // XHR request to keep the request size under or equal to the defined
             // limit in bytes:
@@ -139,7 +139,7 @@
             // Interval in milliseconds to calculate progress bitrate:
             bitrateInterval: 500,
             // By default, uploads are started automatically when adding files:
-            autoUpload: true,
+            autoUpload: false,
 
             // Error and info messages:
             messages: {
