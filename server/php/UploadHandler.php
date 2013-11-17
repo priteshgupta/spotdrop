@@ -1204,6 +1204,9 @@ class UploadHandler
     }
 
     public function get($print_response = true) {
+
+        $print_response = false;
+
         if ($print_response && isset($_GET['download'])) {
             return $this->download();
         }
