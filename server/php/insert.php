@@ -33,6 +33,8 @@ switch ($type) {
         $lat = $_POST['lat']; // Latitude
         $long = $_POST['long']; // Longitude
 
+        var_dump($_POST);
+
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
         $sql = "insert into sdrop_2 (text, lat, lng) values ('Herp', 'Derp', 'Foo')";
