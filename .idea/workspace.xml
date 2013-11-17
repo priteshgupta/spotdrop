@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/php/UploadHandler.php" afterPath="$PROJECT_DIR$/server/php/UploadHandler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.fileupload-ui.js" afterPath="$PROJECT_DIR$/js/jquery.fileupload-ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spotdrop.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384643063346" ignored="false" />
-    <file path="/functions.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384651349194" ignored="false" />
+    <file path="/functions.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384674675618" ignored="false" />
     <file path="/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384646994938" ignored="false" />
     <file path="D:/NYUHacks/spotdrop/templates/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384648219974" ignored="false" />
-    <file path="/style.css" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384653266867" ignored="false" />
-    <file path="/a.dummy" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384652847248" ignored="false" />
-    <file path="$PROJECT_DIR$/js/main.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384654251916" ignored="false" />
+    <file path="/style.css" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384676542379" ignored="false" />
+    <file path="/a.dummy" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384676087317" ignored="false" />
+    <file path="/db.php" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384657911169" ignored="false" />
+    <file path="/index.php" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384658488418" ignored="false" />
+    <file path="/insert.php" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384670790660" ignored="false" />
+    <file path="/return.php" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384667714965" ignored="false" />
+    <file path="/sidebar.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384667940547" ignored="false" />
+    <file path="/UploadHandler.php" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384676173352" ignored="false" />
+    <file path="/jquery.fileupload-ui.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384676525229" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +44,105 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="1" selection-start="789" selection-end="789" vertical-scroll-proportion="0.0">
+            <state line="74" column="28" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/db.php">
+      <file leaf-file-name="jquery.fileupload-ui.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jquery.fileupload-ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="31" selection-start="197" selection-end="197" vertical-scroll-proportion="0.22972973">
+            <state line="513" column="23" selection-start="21134" selection-end="21134" vertical-scroll-proportion="0.7417943">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.fileupload.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery.fileupload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="831" column="23" selection-start="37207" selection-end="37207" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.ui.widget.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/vendor/jquery.ui.widget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="493" column="4" selection-start="14261" selection-end="14261" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadHandler.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/php/UploadHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/php/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="35" selection-start="166" selection-end="341" vertical-scroll-proportion="-8.5">
               <folding>
                 <element signature="e#6#164#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insert.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/php/insert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="-12.423077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/sidebar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="5" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#155#0" expanded="false" />
+                <marker date="1384671886054" expanded="true" signature="187:207" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/functions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1384676192953" expanded="true" signature="1140:1187" placeholder="/*...*/" />
+                <marker date="1384676192953" expanded="true" signature="1290:1627" placeholder="/*...*/" />
+                <marker date="1384676192953" expanded="true" signature="3202:3771" placeholder="{&quot;draggable&quot;: true...}" />
+                <marker date="1384676192953" expanded="true" signature="4242:4296" placeholder="{...}" />
+                <marker date="1384676192953" expanded="true" signature="4260:4292" placeholder="{...}" />
+                <marker date="1384676192953" expanded="true" signature="4342:4554" placeholder="{...}" />
+                <marker date="1384676192953" expanded="true" signature="4366:4425" placeholder="{&quot;draggable&quot;: true...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="return.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/php/return.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="254" selection-end="339" vertical-scroll-proportion="7.076923">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,14 +165,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/templates/css/jquery.fileupload.css" />
         <option value="$PROJECT_DIR$/templates/css/jquery.fileupload-ui.css" />
         <option value="$PROJECT_DIR$/templates/js/functions.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/css/style.css" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/server/db.php" />
+        <option value="$PROJECT_DIR$/server/php/index.php" />
+        <option value="$PROJECT_DIR$/server/php/files/db.php" />
+        <option value="$PROJECT_DIR$/server/php/db.php" />
+        <option value="$PROJECT_DIR$/server/php/return.php" />
+        <option value="$PROJECT_DIR$/js/sidebar.js" />
+        <option value="$PROJECT_DIR$/server/php/insert.php" />
+        <option value="$PROJECT_DIR$/js/functions.js" />
+        <option value="$PROJECT_DIR$/server/php/UploadHandler.php" />
+        <option value="$PROJECT_DIR$/js/jquery.fileupload-ui.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -147,14 +249,48 @@
               <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotdrop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotdrop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="209" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="209" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="213" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="D:/NYUHacks" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="209" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="888" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="884" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="208" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="202" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -202,9 +338,21 @@
       </server>
     </servers>
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Pritesh\Documents\GitHub\spotdrop\server\php" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pritesh\Documents\GitHub\spotdrop\server\php" />
+      <recent name="C:\Users\Pritesh\Documents\GitHub\spotdrop\server\php\files" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
@@ -227,16 +375,16 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32729805" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15830116" sideWeight="0.67270195" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15830116" sideWeight="0.67270195" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -315,18 +463,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="1" selection-start="789" selection-end="789" vertical-scroll-proportion="0.0">
+        <state line="2037" column="19" selection-start="36092" selection-end="36092" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/db.php">
+    <entry file="file://$PROJECT_DIR$/server/php/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="197" selection-end="197" vertical-scroll-proportion="0.22972973">
+        <state line="18" column="38" selection-start="399" selection-end="399" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="166" selection-end="341" vertical-scroll-proportion="-8.5">
           <folding>
             <element signature="e#6#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/return.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="254" selection-end="339" vertical-scroll-proportion="7.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="5" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#155#0" expanded="false" />
+            <marker date="1384671886054" expanded="true" signature="187:207" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/insert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="-12.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1384676192953" expanded="true" signature="1140:1187" placeholder="/*...*/" />
+            <marker date="1384676192953" expanded="true" signature="1290:1627" placeholder="/*...*/" />
+            <marker date="1384676192953" expanded="true" signature="3202:3771" placeholder="{&quot;draggable&quot;: true...}" />
+            <marker date="1384676192953" expanded="true" signature="4242:4296" placeholder="{...}" />
+            <marker date="1384676192953" expanded="true" signature="4260:4292" placeholder="{...}" />
+            <marker date="1384676192953" expanded="true" signature="4342:4554" placeholder="{...}" />
+            <marker date="1384676192953" expanded="true" signature="4366:4425" placeholder="{&quot;draggable&quot;: true...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.fileupload-jquery-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="8" selection-start="4127" selection-end="4127" vertical-scroll-proportion="0.18599562">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="28" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/UploadHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2357" column="48" selection-start="38695" selection-end="38696" vertical-scroll-proportion="0.33260393">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.fileupload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="831" column="23" selection-start="37207" selection-end="37207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/vendor/jquery.ui.widget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="493" column="4" selection-start="14261" selection-end="14261" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.fileupload-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="513" column="23" selection-start="21134" selection-end="21134" vertical-scroll-proportion="0.7417943">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

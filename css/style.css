@@ -68,5 +68,13 @@ a{
     background-color: rgba(0,0,0, 1.0);
 }
 .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
+<<<<<<< HEAD
+    border-top-color: rgba(0,0,0,0);
+}
+
+.hide {
+    display: none !important;
+=======
     border-top-color: rgba(0,0,0, 1.0);
+>>>>>>> a6ebbf3b2fc82c933a74f8daa3fc9419d6746315
 }
