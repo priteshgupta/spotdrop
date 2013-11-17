@@ -164,12 +164,20 @@ function addMarker(obj, draggable) {
         }
     }
 
+    var image = {
+        url: 'https://maps.google.com/mapfiles/kml/paddle/red-circle.png',
+        size: new google.maps.Size(64, 64),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(0, 32),
+        scaledSize: new google.maps.Size(32, 32)
+    };
+
     var marker = new google.maps.Marker({
         position: obj,
         map: map,
         draggable: draggable,
         animation: google.maps.Animation.DROP,
-        icon: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png'
+        icon: image
     });
 
     allMarkers.push(marker);
