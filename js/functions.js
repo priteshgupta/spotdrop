@@ -239,7 +239,10 @@ function addMarker(obj, draggable, type, filename) {
     }
 
     allMarkers.push(marker);
-    addInfoWindow(marker, "<p>" + filename + "</p>");
+    var info = addInfoWindow(marker, "<p>" + filename + "</p>");
+    if(type == 'text'){
+        info.open(map, marker);
+    }
     return marker;
 }
 
