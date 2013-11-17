@@ -130,7 +130,7 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = addMarker(curLatLng);
+    var marker = addMarker(curLatLng, true);
 
     if(marker !== null){
 
@@ -144,6 +144,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
             });
+            marker.draggable = false;
         });
     }
 
@@ -154,7 +155,7 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(obj) {
+function addMarker(obj, draggable) {
     for (var j = 0; j < allMarkers.length; j++) {
         if (allMarkers[j].position.equals(obj)) {
             return null;
@@ -164,7 +165,7 @@ function addMarker(obj) {
     var marker = new google.maps.Marker({
         position: obj,
         map: map,
-        draggable: true,
+        draggable: draggable,
         animation: google.maps.Animation.DROP
     });
 
@@ -178,6 +179,6 @@ function updateView(data) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
         //console.log(allMarkers);
         //console.log(data);
-        addMarker(obj);
+        addMarker(obj, false);
     }
 }
