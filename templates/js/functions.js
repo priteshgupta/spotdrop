@@ -59,7 +59,7 @@ function initialize(position) {
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
-        zoom: 4,
+        zoom: 8,
         center: latLng,
     };
 
