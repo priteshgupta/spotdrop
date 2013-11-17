@@ -97,7 +97,8 @@ function initialize(position) {
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-        icon: homeMarker
+        icon: homeMarker,
+        zIndex: 1000
     });
 
     addInfoWindow(marker, "<h3>Me</h3>");
