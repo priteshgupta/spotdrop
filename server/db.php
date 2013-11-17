@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-$link = mysql_connect('162.243.50.75', 'root', 'password');
+$link = mysql_connect('localhost', 'root', 'password');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
