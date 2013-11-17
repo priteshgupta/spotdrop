@@ -31,6 +31,8 @@ while ($row = mysql_fetch_assoc($result)) {
     echo $row['foo'];
 }
 
+echo "\nHello World";
+
 mysql_free_result($result);
 
 //mysql_close($link);
