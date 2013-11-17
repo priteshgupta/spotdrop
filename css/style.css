@@ -66,7 +66,8 @@ a{
 }
 .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th,
 .table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th,  {
-    background: rgba(55,55,55, 1.0);
+    background: rgba(55,55,55, 1.0) !important;
+    background-color: rgba(55,55,55, 1.0) !important;
 }
 
 .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
