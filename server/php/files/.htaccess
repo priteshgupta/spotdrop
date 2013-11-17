@@ -1,3 +1,19 @@
+AddType application/octet-stream .gif
+AddType application/octet-stream .png
+AddType application/octet-stream .jpeg
+AddType application/octet-stream .avi
+AddType application/octet-stream .mp4
+AddType application/octet-stream .pdf
+
+php_value upload_max_filesize 32M
+php_value post_max_size 32M
+
+<Files *.*>
+	ForceType applicaton/octet-stream
+	Header set Content-Disposition attachment
+</Files>
+
+
 # The following directives force the content-type application/octet-stream
 # and force browsers to display a download dialog for non-image files.
 # This prevents the execution of script files in the context of the website:
