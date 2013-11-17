@@ -4,6 +4,12 @@ body
     padding: 0;
 }
 
+@font-face
+{
+font-family: lefont;
+src: url('dekar-light.otf');
+}
+
 iframe {
     vertical-align: top;
 }
