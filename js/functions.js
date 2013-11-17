@@ -166,7 +166,14 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
     });
 
     $('#fileupload').bind('fileuploadfail', function (e, failData) {
-        console.log(addData);
-        console.log(failData);
+        if(addData.files[0] === failData.files[0]){
+            console.log("removing file " + failData.files[0].name);
+            removeMarker(marker);
+        }
     });
 });
+
+function removeMarker(marker){
+    marker.setMap(null);
+    marker = null;
+}
