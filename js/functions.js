@@ -18,13 +18,6 @@ $(function () {
         });
     }, 3000);
 
-
-    $('.status_push').bind('click', function() {
-        console.log("No, I am coming here")
-    });
-
-
-
 });
 
 var data;
@@ -255,7 +248,9 @@ function addInfoWindow(marker, html){
 
 /** STATUS STUFF GOES HERE **/
 
-$('.status_push').bind('click', function() {
-    console.log("I am coming here")
+$('.status_push').bind('click', function(event) {
+    $.post('../server/php/insert.php?type=text', {status:"Asda", lat: "sas", lng: "sda"});
+    console.log("I am coming here");
+    event.preventDefault();
 });
 
