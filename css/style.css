@@ -102,5 +102,5 @@ td {
 }
 
 .status_push {
-    display: none;
+    visibility: hidden;
 }
