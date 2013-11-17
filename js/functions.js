@@ -259,7 +259,7 @@ $('.status_push').bind('click', function(event) {
 
     var status = $('.status').val();
 
-    conso.log(status);
+    console.log(status);
 
     $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), lng: allMarkers[0].position.lng()});
 
