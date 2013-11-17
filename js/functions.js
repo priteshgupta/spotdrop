@@ -134,7 +134,8 @@ function drop(ev) {
     var marker = new google.maps.Marker({
         position: curLatLng,
         map: map,
-        draggable: true
+        draggable: true,
+        animation: google.maps.Animation.DROP
     });
     newPins.push(marker);
     console.log(curLatLng);
