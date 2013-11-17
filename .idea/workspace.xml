@@ -3,14 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/js/functions.js" afterPath="$PROJECT_DIR$/templates/js/functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/css/style.css" afterPath="$PROJECT_DIR$/templates/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spotdrop.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384643063346" ignored="false" />
-    <file path="/functions.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384643726339" ignored="false" />
+    <file path="/functions.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384651349194" ignored="false" />
     <file path="/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384646994938" ignored="false" />
     <file path="D:/NYUHacks/spotdrop/templates/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384648219974" ignored="false" />
+    <file path="/style.css" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384651956608" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +44,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/js/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="15" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.48410404">
+            <state line="8" column="3" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="18" selection-start="703" selection-end="703" vertical-scroll-proportion="0.9263006">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,6 +87,7 @@
         <option value="$PROJECT_DIR$/templates/css/jquery.fileupload.css" />
         <option value="$PROJECT_DIR$/templates/css/jquery.fileupload-ui.css" />
         <option value="$PROJECT_DIR$/templates/js/functions.js" />
+        <option value="$PROJECT_DIR$/templates/css/style.css" />
       </list>
     </option>
   </component>
@@ -164,6 +176,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotdrop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotdrop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -379,10 +409,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/js/functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="15" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.48410404">
+        <state line="8" column="3" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="18" selection-start="703" selection-end="703" vertical-scroll-proportion="0.9263006">
+          <folding />
         </state>
       </provider>
     </entry>

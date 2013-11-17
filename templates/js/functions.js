@@ -5,11 +5,7 @@
  onLoad
  */
 $(function () {
-
     navigator.geolocation.getCurrentPosition(initialize);
-
-
-
 });
 
 var map;
@@ -71,11 +67,11 @@ function initialize(position) {
      animation: google.maps.Animation.DROP
 
      */
-    var markerlatlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var marker = new google.maps.Marker({
         position: markerlatlng,
-        title:"Hello World!"
+        title: "Hello World!"
     });
 
     marker.setMap(map);
@@ -91,15 +87,15 @@ function initialize(position) {
 
     infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
 
-    google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.open(map,marker);
+    google.maps.event.addListener(marker, 'click', function () {
+        infoWindow.open(map, marker);
     });
 
-    google.maps.event.addListener(marker, 'dragstart', function(){
+    google.maps.event.addListener(marker, 'dragstart', function () {
         infoWindow.close();
     });
 
-    infoWindow.open(map,marker);
+    infoWindow.open(map, marker);
 
     google.maps.event.addListener(map, 'mousemove', function (event) {
         updateCurLatLong(event);
