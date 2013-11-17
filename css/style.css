@@ -89,3 +89,18 @@ td {
 .gm-style-iw + div {
     display: none;
 }
+
+.status {
+    font: normal 1.1em/1.5em Verdana, sans-serif;
+    line-height: 2.3em;
+    width: 100%;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.status_push {
+    display: none;
+}
