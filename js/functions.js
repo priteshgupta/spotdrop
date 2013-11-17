@@ -273,7 +273,7 @@ function addDownload(marker, filename){
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
         e.stop();
         console.log("trying to download "+filename);
-        //window.location = "server/php/files/" + filename;
+        window.location = "server/php/files/" + filename;
     });
 }
 /** STATUS STUFF GOES HERE **/
