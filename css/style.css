@@ -59,9 +59,8 @@ a{
 .table.table-striped {
     position: fixed;
     bottom: -20px;
-    opacity: 0.8;
+    opacity: 1;
 }
-
 .files {
     border-color: rgba(0,0,0,0);
 }
