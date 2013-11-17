@@ -202,3 +202,11 @@ function updateView(data) {
         addMarker(obj, false);
     }
 }
+
+$("#holder").mouseenter(function(){
+    $("#hidden-text").css('opacity', '1');
+});
+
+$("#holder").mouseleave(function(){
+    $("#hidden-text").css('opacity', '0');
+});
