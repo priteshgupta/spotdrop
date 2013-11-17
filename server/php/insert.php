@@ -6,7 +6,9 @@ include_once "db.php";
 // Type of request
 $type = $_GET['type'];
 
-echo $type;
+var_dump($_GET);
+echo "\n";
+var_dump($_POST);
 
 switch ($type) {
     case 'file':    // If a file upload
