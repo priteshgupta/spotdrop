@@ -11,11 +11,12 @@ $(function() {
     var data;
 
     setInterval(function(){
-        $.get( "../server/php/return.php?type=text", function(Data) {
-            data = JSON.parse(Data);
-            console.log("text data");
-            console.log(data);
-        });
+        // $.get( "../server/php/return.php?type=text", function(Data) {
+        //     data = JSON.parse(Data);
+        //     console.log("text data");
+        //     console.log(data);
+        // });
+    console.log("asdf");
     }, 500);
 
     for (var i = 0; i < data.length; i++) {
