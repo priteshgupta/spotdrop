@@ -167,7 +167,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 
         $('#fileupload').bind('fileuploaddone', function (e, data) {
             marker.setDraggable(false);
-			if(function)
+			if(isWithinBounds(allMarkers[0], marker))
 			{
 				marker.setIcon(bluMarker);
 			}
@@ -182,6 +182,13 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
     }
 
 });
+
+function isWithinBounds(marker1, marker2){
+    var sw = google.maps.LatLng(marker1.position.lat - 0.025, marker1.position.lng - 0.025);
+    var ne = google.maps.LatLng(marker1.position.lat + 0.025, marker1.position.lng + 0.025);
+    var marker1Bounds = google.maps.LatLngBounds(sw, ne);
+    return marker1Bounds.contains(marker2.position);
+}
 
 function removeMarker(marker) {
     marker.setMap(null);
@@ -202,6 +209,10 @@ function addMarker(obj, draggable, title) {
         animation: google.maps.Animation.DROP,
         icon: grnMarker
     });
+
+    if(isWithinBounds(allMarkers[0], marker)){
+        marker.setIcon(bluMarker);
+    }
 
     allMarkers.push(marker);
     console.log("about to add InfoWindow");
