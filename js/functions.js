@@ -291,7 +291,7 @@ $('.status_push').bind('click', function(event) {
     $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), long: allMarkers[0].position.lng()});
 
     selfStatusWindow.setContent(status);
-    selfStatusWindow.open();
+    selfStatusWindow.open(map, allMarkers[0]);
 
     event.preventDefault();
 });
