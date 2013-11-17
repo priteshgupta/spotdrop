@@ -13,6 +13,8 @@ $(function() {
     setInterval(function(){
         $.get( "../server/php/return.php?type=text", function(Data) {
             data = JSON.parse(Data);
+            console.log("text data");
+            console.log(data);
         });
     }, 500);
 
@@ -37,6 +39,8 @@ $(function() {
     setInterval(function(){
         $.get( "../server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
+            console.log("file data");
+            console.log(data);
         });
     }, 500);
 
