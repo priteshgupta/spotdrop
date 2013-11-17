@@ -101,6 +101,10 @@ function initialize(position) {
 
     infoWindow.open(map,marker);
 
+    google.maps.event.addListener(map, 'mousemove', function (event) {
+        updateCurLatLong(event);
+    });
+
     $("#zo").click(function (event) {
         event.preventDefault();
         map.setZoom(map.getZoom() - 1);
