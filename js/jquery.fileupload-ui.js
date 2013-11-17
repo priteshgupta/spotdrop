@@ -94,37 +94,40 @@
                     .addClass('processing');
                 options.filesContainer[
                     options.prependFiles ? 'prepend' : 'append'
-                ](data.context);
+                    ](data.context);
                 that._forceReflow(data.context);
                 $.when(
-                    that._transition(data.context),
-                    data.process(function () {
-                        return $this.fileupload('process', data);
-                    })
-                ).always(function () {
-                    data.context.each(function (index) {
-                        $(this).find('.size').text(
-                            that._formatFileSize(data.files[index].size)
-                        );
-                    }).removeClass('processing');
-                    that._renderPreviews(data);
-                }).done(function () {
-                    data.context.find('.start').prop('disabled', false);
-                    if ((that._trigger('added', e, data) !== false) &&
+                        that._transition(data.context),
+                        data.process(function () {
+                            return $this.fileupload('process', data);
+                        })
+                    ).always(function () {
+                        data.context.each(function (index) {
+                            $(this).find('.size').text(
+                                that._formatFileSize(data.files[index].size)
+                            );
+                        }).removeClass('processing');
+                        that._renderPreviews(data);
+                    }).done(function () {
+                        data.context.find('.start').prop('disabled', false);
+                        if ((that._trigger('added', e, data) !== false) &&
                             (options.autoUpload || data.autoUpload) &&
                             data.autoUpload !== false) {
-                        data.submit();
-                    }
-                }).fail(function () {
-                    if (data.files.error) {
-                        data.context.each(function (index) {
-                            var error = data.files[index].error;
-                            if (error) {
-                                $(this).find('.error').text(error);
-                            }
-                        });
-                    }
-                });
+                            data.submit();
+
+                            console.log("1")
+
+                        }
+                    }).fail(function () {
+                        if (data.files.error) {
+                            data.context.each(function (index) {
+                                var error = data.files[index].error;
+                                if (error) {
+                                    $(this).find('.error').text(error);
+                                }
+                            });
+                        }
+                    });
             },
             // Callback for the start of each file upload request:
             send: function (e, data) {
@@ -132,9 +135,9 @@
                     return false;
                 }
                 var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                    $(this).data('fileupload');
                 if (data.context && data.dataType &&
-                        data.dataType.substr(0, 6) === 'iframe') {
+                    data.dataType.substr(0, 6) === 'iframe') {
                     // Iframe Transport does not support progress events.
                     // In lack of an indeterminate progress bar, we set
                     // the progress to 100%, showing the full animated bar:
@@ -165,7 +168,7 @@
                 if (data.context) {
                     data.context.each(function (index) {
                         var file = files[index] ||
-                                {error: 'Empty file upload result'};
+                        {error: 'Empty file upload result'};
                         deferred = that._addFinishedDeferreds();
                         that._transition($(this)).done(
                             function () {
@@ -187,7 +190,7 @@
                 } else {
                     template = that._renderDownload(files)[
                         that.options.prependFiles ? 'prependTo' : 'appendTo'
-                    ](that.options.filesContainer);
+                        ](that.options.filesContainer);
                     that._forceReflow(template);
                     deferred = that._addFinishedDeferreds();
                     that._transition(template).done(
@@ -247,7 +250,7 @@
                 } else if (data.errorThrown !== 'abort') {
                     data.context = that._renderUpload(data.files)[
                         that.options.prependFiles ? 'prependTo' : 'appendTo'
-                    ](that.options.filesContainer)
+                        ](that.options.filesContainer)
                         .data('data', data);
                     that._forceReflow(data.context);
                     deferred = that._addFinishedDeferreds();
@@ -312,7 +315,7 @@
                     return false;
                 }
                 var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                    $(this).data('fileupload');
                 that._resetFinishedDeferreds();
                 that._transition($(this).find('.fileupload-progress')).done(
                     function () {
@@ -502,6 +505,9 @@
         },
 
         _startHandler: function (e) {
+
+            console.log("3")
+
             e.preventDefault();
             var button = $(e.currentTarget),
                 template = button.closest('.template-upload'),
@@ -568,6 +574,7 @@
                 click: function (e) {
                     e.preventDefault();
                     filesList.find('.start').click();
+                    console.log("2")
                 }
             });
             this._on(fileUploadButtonBar.find('.cancel'), {
