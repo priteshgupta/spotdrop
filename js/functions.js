@@ -143,7 +143,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
         $('#fileupload').bind('fileuploaddone', function (e, data) {
             console.log("setting draggable to false");
             marker.draggable = false;
-            marker.icon.url = url: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png';
+            marker.icon.url = 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png';
             console.log("now updating server");
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
