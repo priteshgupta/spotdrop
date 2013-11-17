@@ -9,6 +9,7 @@ $(function () {
 });
 
 var map;
+var newPins = new Array();
 
 function initialize(position) {
 
@@ -71,7 +72,7 @@ function initialize(position) {
 
     var marker = new google.maps.Marker({
         position: markerlatlng,
-        title: "Hello World!"
+        title: "I am here!"
     });
 
     marker.setMap(map);
@@ -133,14 +134,13 @@ function drop(ev) {
     var marker = new google.maps.Marker({
         position: curLatLng,
         map: map,
-        title: "Hello World!"
+        draggable: true,
+        animation: google.maps.Animation.DROP
     });
+    newPins.push(marker);
     console.log(curLatLng);
-    //var data=ev.dataTransfer.getData("Text");
-    //ev.target.appendChild(document.getElementById(data));
 }
 
 function updateCurLatLong(event) {
     curLatLng = event.latLng;
-    //console.log(curLatLng);
 }
