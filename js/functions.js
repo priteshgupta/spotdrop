@@ -189,7 +189,7 @@ function updateView(data) {
 
         for (var j = 0; j < allMarkers.length; j++) {
 
-            if (allMarkers[j].position.ob !== data[i].position.ob) {
+            if (allMarkers[j].position.ob !== data[i].lat) {
                 var marker = new google.maps.Marker({
                     position: obj,
                     map: map,
