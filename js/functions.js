@@ -141,10 +141,12 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
         });
 
         $('#fileupload').bind('fileuploaddone', function (e, data) {
+            console.log("setting draggable to false");
+            marker.draggable = false;
+            console.log("now updating server");
             $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
                 lat: marker.position.lat(), long: marker.position.lng()
             });
-            marker.draggable = false;
         });
     }
 
