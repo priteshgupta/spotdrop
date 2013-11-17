@@ -35,6 +35,7 @@ var map;
 var newPins = new Array();
 var iconBase = 'https://maps.google.com/mapfiles/';
 var allMarkers = [];
+var selfStatusWindow;
 
 var bluMarker = {
 	url: 'https://maps.google.com/mapfiles/kml/paddle/blu-circle.png',
@@ -112,7 +113,7 @@ function initialize(position) {
         zIndex: 1000
     });
 
-    addInfoWindow(marker, "<h3>Me</h3>");
+    selfStatusWindow = addInfoWindow(marker, "<h3>Me</h3>");
 
     allMarkers.push(marker);
 
@@ -289,8 +290,8 @@ $('.status_push').bind('click', function(event) {
 
     $.post('server/php/insert.php?type=text', {status:status, lat: allMarkers[0].position.lat(), long: allMarkers[0].position.lng()});
 
-    win = addInfoWindow(allMarkers[0], status);
-    win.open();
+    selfStatusWindow.setContent(status);
+    selfStatusWindow.open(map, allMarkers[0]);
 
     event.preventDefault();
 });
