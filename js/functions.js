@@ -74,7 +74,7 @@ function initialize(position) {
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-		icon: iconBase + 'arrow.png'
+		icon: iconBase + 'poi.png'
     });
 
     marker.setMap(map);
