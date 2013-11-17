@@ -19,7 +19,7 @@ switch ($type) {
 
         // The query; no PDO for this app :-(
         // ... No sanitizing too. :'(
-        $sql    = "insert into sdrop (fname, lat, lng) values ('hello', 1212, 233)";
+        $sql    = "insert into sdrop (fname, lat, lng) values ('$fname', $lat, $long)";
         $result = mysql_query($sql, $link);
 
         if($result){
