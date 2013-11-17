@@ -188,20 +188,23 @@ function updateView(data) {
         console.log(allMarkers);
         console.log(data);
 
+        var found = 0;
+
         for (var j = 0; j < allMarkers.length; j++) {
-
-            if (allMarkers[j].position.ob !== data[i].position.ob) {
-                var marker = new google.maps.Marker({
-                    position: obj,
-                    map: map,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP
-                });
-
-                allMarkers.push(marker);
-
+            if (allMarkers[j].position.equals(obj)) {
+                found++;
             }
+        }
 
+        if (found === 0) {
+            var marker = new google.maps.Marker({
+                position: obj,
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP
+            });
+
+            allMarkers.push(marker);
         }
 
     }
