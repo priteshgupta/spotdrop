@@ -203,10 +203,12 @@ function updateView(data) {
     }
 }
 
-$("#holder").mouseenter(function(){
-    $("#hidden-text").css('opacity', '1');
+/*$("#holder").mouseenter(function(){
+    $("#hidden-text").fadeIn(400);
 });
 
 $("#holder").mouseleave(function(){
-    $("#hidden-text").css('opacity', '0');
-});
+    $("#hidden-text").fadeOut(400);
+});*/
+
+$("#hidden-text").delay(5000).fadeOut(400);
