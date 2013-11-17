@@ -28,8 +28,7 @@ switch ($type) {
         $sql = "INSERT INTO sdrop (fname, lat, long) VALUES ('$fname', '$lat', '$long')";
         $result = mysqli_query($link, $sql) or die(mysqli_error($link)); ;
 
-        echo mysqli_errno($this->db_link);
-
+        echo mysqli_errno($link);
 
         if($result){
             echo "Successful";
