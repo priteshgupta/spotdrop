@@ -89,7 +89,7 @@
             singleFileUploads: true,
             // To limit the number of files uploaded with one XHR request,
             // set the following option to an integer greater than 0:
-            limitMultiFileUploads: undefined,
+            limitMultiFileUploads: 3,
             // The following option limits the number of files uploaded with one
             // XHR request to keep the request size under or equal to the defined
             // limit in bytes:

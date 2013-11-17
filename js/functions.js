@@ -139,6 +139,12 @@ function drop(ev) {
     });
     newPins.push(marker);
     console.log(curLatLng);
+
+    $('#fileupload').fileupload(
+        fail: function (e, data) {
+            alert('failed');
+        }
+    );
 }
 
 function updateCurLatLong(event) {
