@@ -28,8 +28,6 @@ function initialize(position) {
     /*
      Basic Setup
      */
-//    console.log("Lat is " + position.coords.latitude);
-//    console.log("Long is " + position.coords.longitude);
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var stylez = [
         {
@@ -64,19 +62,6 @@ function initialize(position) {
     map.mapTypes.set('tehgrayz', mapType);
     map.setMapTypeId('tehgrayz')
 
-    /*
-     MARKER
-     */
-
-    /*
-     //for custom image
-     var image = 'yourflag.png';
-     icon: image
-
-     //for animation marker drop
-     animation: google.maps.Animation.DROP
-
-     */
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var marker = new google.maps.Marker({
@@ -145,30 +130,22 @@ function updateCurLatLong(event) {
 }
 
 $('#fileupload').bind('fileuploadadd', function (e, addData) {
-    var marker = new google.maps.Marker({
-        position: curLatLng,
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP
-    });
+    var marker = addMarker(curLatLng);
 
-    $('#fileupload').bind('fileuploadfail', function (e, failData) {
-        if (addData.files[0] === failData.files[0]) {
-            //console.log("removing file " + failData.files[0].name);
-            removeMarker(marker);
-        }
-    });
+    if(marker !== null){
 
-    $('#fileupload').bind('fileuploaddone', function (e, data) {
-//        console.log("successful upload of "+data.files[0].name);
-        //console.log(e);
-        //console.log(data);
-        $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
-            lat: marker.position.lat(), long: marker.position.lng()
+        $('#fileupload').bind('fileuploadfail', function (e, failData) {
+            if (addData.files[0] === failData.files[0]) {
+                removeMarker(marker);
+            }
         });
-        marker.icon = iconBase + 'kml/paddle/grn-circle.png';
 
-    });
+        $('#fileupload').bind('fileuploaddone', function (e, data) {
+            $.post("http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name,
+                lat: marker.position.lat(), long: marker.position.lng()
+            });
+        });
+    }
 
 });
 
@@ -177,35 +154,30 @@ function removeMarker(marker) {
     marker = null;
 }
 
-function addMarker(marker) {
+function addMarker(obj) {
+    for (var j = 0; j < allMarkers.length; j++) {
+        if (allMarkers[j].position.equals(obj)) {
+            return null;
+        }
+    }
 
+    var marker = new google.maps.Marker({
+        position: obj,
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP
+    });
+
+    allMarkers.push(marker);
+
+    return marker;
 }
 
 function updateView(data) {
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
-
-        console.log(allMarkers);
-        console.log(data);
-
-        var found = 0;
-
-        for (var j = 0; j < allMarkers.length; j++) {
-            if (allMarkers[j].position.equals(obj)) {
-                found++;
-            }
-        }
-
-        if (found === 0) {
-            var marker = new google.maps.Marker({
-                position: obj,
-                map: map,
-                draggable: true,
-                animation: google.maps.Animation.DROP
-            });
-
-            allMarkers.push(marker);
-        }
-
+        //console.log(allMarkers);
+        //console.log(data);
+        addMarker(obj);
     }
 }
