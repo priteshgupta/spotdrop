@@ -176,7 +176,7 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
         console.log("successful upload");
         console.log(e);
         console.log(data);
-        $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: "FILE_NAME", 
+        $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name, 
             lat: marker.position.lat(), long: marker.position.lng() 
         });
     });
