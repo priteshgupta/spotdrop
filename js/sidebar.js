@@ -11,12 +11,12 @@ $(function() {
     var data;
 
     setInterval(function(){
-        // $.get( "../server/php/return.php?type=text", function(Data) {
-        //     data = JSON.parse(Data);
-        //     console.log("text data");
-        //     console.log(data);
-        // });
-    console.log("asdf");
+        $.get( "../server/php/return.php?type=text", function(Data) {
+            data = JSON.parse(Data);
+            console.log("text data");
+            console.log(data);
+        });
+        console.log("asdf text");
     }, 500);
 
     for (var i = 0; i < data.length; i++) {
@@ -43,6 +43,7 @@ $(function() {
             console.log("file data");
             console.log(data);
         });
+        console.log("asdf file");
     }, 500);
 
     for (var i = 0; i < data.length; i++) {
