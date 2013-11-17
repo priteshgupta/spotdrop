@@ -8,6 +8,12 @@ $(function () {
 
     navigator.geolocation.getCurrentPosition(initialize);
 
+    console.log(navigator.geolocation.getCurrentPosition)
+
+    console.log(navigator.geolocation.getCurrentPosition.coords.latitude)
+    
+    console.log(navigator.geolocation.getCurrentPosition.coords.longitude)
+
     $("#zo").click(function (event) {
         event.preventDefault();
         map.setZoom(map.getZoom() - 1);
