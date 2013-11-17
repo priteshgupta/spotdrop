@@ -7,29 +7,22 @@
  $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 
-
-
     setInterval(function(){
         console.log(allMarkers);
 
         $.get( "server/php/return.php?type=file", function(Data) {
             data = JSON.parse(Data);
-//            console.log("updating view");
-//            console.log(data);
-
-
-
-           updateView(data);
+            updateView(data);
 
         });
-    }, 10000);
+    }, 2000);
 });
 
  var data;
  var map;
  var newPins = new Array();
  var iconBase = 'https://maps.google.com/mapfiles/';
-var allMarkers = [];
+ var allMarkers = [];
 
  function initialize(position) {
     /*
@@ -40,23 +33,22 @@ var allMarkers = [];
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var stylez = [
     {
-     featureType: "all",
-     elementType: "all",
-     stylers: [
-              { saturation: -100 }, // <-- THIS
-              { lightness: -20 }
-              ]
-          }
-          ];
+        featureType: "all",
+        elementType: "all",
+        stylers: [
+            { saturation: -100 }, // <-- THIS
+            { lightness: -20 }
+        ]
+    }];
 
-          var myOptions = {
-            panControl: false,
-            zoomControl: false,
-            mapTypeControl: false,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false,
-            draggable: true,
+    var myOptions = {
+        panControl: false,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        overviewMapControl: false,
+        draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
         zoom: 6,
@@ -84,7 +76,7 @@ var allMarkers = [];
      animation: google.maps.Animation.DROP
 
      */
-     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
      var marker = new google.maps.Marker({
         position: markerlatlng,
@@ -92,9 +84,9 @@ var allMarkers = [];
         icon: iconBase + 'arrow.png'
     });
 
-     allMarkers.push(marker);
+    allMarkers.push(marker);
 
-     marker.setMap(map);
+    marker.setMap(map);
 
     /*
      INFO Bubble
@@ -115,28 +107,28 @@ var allMarkers = [];
         infoWindow.close();
     });
 
-infoWindow.open(map, marker); */
+    infoWindow.open(map, marker); */
 
-google.maps.event.addListener(map, 'mousemove', function (event) {
-    updateCurLatLong(event);
-});
+    google.maps.event.addListener(map, 'mousemove', function (event) {
+        updateCurLatLong(event);
+    });
 
-$("#zo").click(function (event) {
-    event.preventDefault();
-    map.setZoom(map.getZoom() - 1);
+    $("#zo").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() - 1);
         //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
     });
 
-$("#zi").click(function (event) {
-    event.preventDefault();
-    map.setZoom(map.getZoom() + 1);
-});
+    $("#zi").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() + 1);
+    });
 
-$("#gt").click(function (event) {
-    event.preventDefault();
-    var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        //map.setZoom( 16 );
-        map.panTo(lt1);
+    $("#gt").click(function (event) {
+        event.preventDefault();
+        var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            //map.setZoom( 16 );
+            map.panTo(lt1);
     });
 
 
@@ -187,28 +179,14 @@ function removeMarker(marker){
 function updateView(data){
     for (var i = 0; i < data.length; i++) {
         var obj = new google.maps.LatLng(data[i].lat, data[i].long);
+        var marker = new google.maps.Marker({
+            position: obj,
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP
+        });
 
-        if (data[i -1] !== undefined) {
-            if (data[i].id !== data[i -1].id) {
-
-                var marker = new google.maps.Marker({
-                    position: obj,
-                    map: map,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP
-                });
-
-                allMarkers.push(marker);
-
-            }
-        } else {
-            var market = new google.maps.Marker({
-                position: obj,
-                map: map,
-                draggable: true,
-                animation: google.maps.Animation.DROP
-            });
-
+        if(allMarkers.indexOf(marker) == -1){
             allMarkers.push(marker);
         }
     }
