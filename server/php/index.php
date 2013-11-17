@@ -11,5 +11,9 @@
  */
 
 error_reporting(E_ALL | E_STRICT);
+
+// Upload handler
 require('UploadHandler.php');
+
+// Instantiate the class
 $upload_handler = new UploadHandler();
