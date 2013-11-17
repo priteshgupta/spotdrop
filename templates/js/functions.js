@@ -39,13 +39,13 @@ function initialize(position) {
     var myOptions = {
         panControl: false,
         zoomControl: false,
-        mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
+        mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
         overviewMapControl: false,
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
-        scrollwheel: true,
+        scrollwheel: false,
         zoom: 6,
         center: latLng,
         mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
@@ -70,11 +70,11 @@ function initialize(position) {
      animation: google.maps.Animation.DROP
 
      */
-    var markerlatlng = new google.maps.LatLng(39.8282, -98.5795);
+    var markerlatlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
     var marker = new google.maps.Marker({
         position: markerlatlng,
-        title: "Hello World!"
+        title:"Hello World!"
     });
 
     marker.setMap(map);
@@ -90,19 +90,15 @@ function initialize(position) {
 
     infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
 
-    google.maps.event.addListener(marker, 'click', function () {
-        infoWindow.open(map, marker);
+    google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(map,marker);
     });
 
-    google.maps.event.addListener(marker, 'dragstart', function () {
+    google.maps.event.addListener(marker, 'dragstart', function(){
         infoWindow.close();
     });
 
-    infoWindow.open(map, marker);
-
-    google.maps.event.addListener(map, 'mousemove', function (event) {
-        updateCurLatLong(event);
-    });
+    infoWindow.open(map,marker);
 
     $("#zo").click(function (event) {
         event.preventDefault();
