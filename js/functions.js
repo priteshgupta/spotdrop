@@ -17,6 +17,7 @@ $(function () {
 
         });
     }, 3000);
+
 });
 
 var data;
@@ -80,7 +81,7 @@ function initialize(position) {
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
-        zoom: 12,
+        zoom: 14,
         center: latLng,
         mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
         mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
@@ -252,3 +253,10 @@ function addDownload(marker, filename){
         window.location = 'server/php/files/' + filename;
     });
 }
+/** STATUS STUFF GOES HERE **/
+
+$('.status_push').bind('click', function(event) {
+    $.post('server/php/insert.php?type=text', {status:$('.status').val(), lat: "sas", lng: "sda"});
+    console.log("I am coming here");
+    event.preventDefault();
+});
