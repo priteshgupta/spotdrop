@@ -168,7 +168,8 @@ function addMarker(obj, draggable) {
         position: obj,
         map: map,
         draggable: draggable,
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.DROP,
+        icon: 'https://maps.google.com/mapfiles/kml/paddle/grn-circle.png'
     });
 
     allMarkers.push(marker);
