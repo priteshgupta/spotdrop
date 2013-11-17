@@ -47,8 +47,11 @@ a{
 }
 
 .row.fileupload-buttonbar {
-    /*display: none;*/
+    display: none;
+}
+
+.table.table-striped {
     position: fixed;
-    bottom: 0;
-    z-index: 1000;
+    bottom: -20px;
+    opacity: 0.75;
 }

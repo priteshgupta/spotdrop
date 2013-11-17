@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/css/style.css" afterPath="$PROJECT_DIR$/templates/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spotdrop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -11,7 +11,7 @@
     <file path="/functions.js" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384651349194" ignored="false" />
     <file path="/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384646994938" ignored="false" />
     <file path="D:/NYUHacks/spotdrop/templates/index.html" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384648219974" ignored="false" />
-    <file path="/style.css" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384653050746" ignored="false" />
+    <file path="/style.css" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384653266867" ignored="false" />
     <file path="/a.dummy" changelist="06f5e7f6-8f6d-4eeb-969f-e8971e25ef4d" time="1384652847248" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="18" selection-start="762" selection-end="762" vertical-scroll-proportion="0.9017341">
+            <state line="51" column="0" selection-start="706" selection-end="706" vertical-scroll-proportion="0.8280347">
               <folding />
             </state>
           </provider>
@@ -456,7 +456,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="18" selection-start="762" selection-end="762" vertical-scroll-proportion="0.9017341">
+        <state line="51" column="0" selection-start="706" selection-end="706" vertical-scroll-proportion="0.8280347">
           <folding />
         </state>
       </provider>
