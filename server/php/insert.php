@@ -13,7 +13,8 @@ $lat   = $_POST['lat'];
 $long  = $_POST['long'];
 
 // The query; no PDO for this app :-(
-$sql   = "insert into sdrop (fname, lat, lng) values ('yea', '1', '2')";
+// ... No sanitizing too. :'(
+$sql   = "insert into sdrop (fname, lat, lng) values ($fname, $lat, $long)";
 
 // Close the link
 mysql_close($link);
