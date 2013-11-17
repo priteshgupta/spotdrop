@@ -145,7 +145,7 @@ function drop(ev) {
     $('#fileupload').bind('fileuploadfail', function (e, data) {
             $.each(data.files, function (index, file) {
                 console.log("index: " + index+ " name: " + file.name)
-            }
+            });
             //console.log(e);
             //console.log(data);
         }
