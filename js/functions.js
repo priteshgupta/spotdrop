@@ -173,12 +173,14 @@ $('#fileupload').bind('fileuploadadd', function(e, addData){
     });
 
     $('#fileupload').bind('fileuploaddone', function (e, data) {
-        console.log("successful upload");
-        console.log(e);
-        console.log(data);
+        console.log("successful upload of "+data.files[0].name);
+        //console.log(e);
+        //console.log(data);
         $.post( "http://162.243.50.75/spotdrop/server/php/insert.php?type=file", { fname: data.files[0].name, 
             lat: marker.position.lat(), long: marker.position.lng() 
         });
+        marker.icon = iconBase + 'kml/paddle/grn-circle.png';
+
     });
 
 });
