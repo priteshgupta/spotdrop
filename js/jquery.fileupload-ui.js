@@ -513,10 +513,6 @@
         },
 
         _cancelHandler: function (e) {
-            console.log("_cancelHandler called");
-            var pinToRemove = newPins.pop();
-            pinToRemove.setMap(null);
-            pinToRemove = null;
             e.preventDefault();
             var template = $(e.currentTarget)
                     .closest('.template-upload,.template-download'),

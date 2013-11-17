@@ -137,13 +137,12 @@ function drop(ev) {
         draggable: true,
         animation: google.maps.Animation.DROP
     });
-    newPins.push(marker);
+    //newPins.push(marker);
     console.log(curLatLng);
 
     $('#fileupload').bind('fileuploadfail', function (e, data) {
-            console.log(e);
-            console.log(data);
-            alert('failed');
+            marker.setMap(null);
+            marker = null;
         }
     );
 }
