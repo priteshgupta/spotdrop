@@ -49,6 +49,11 @@ var grnMarker = {
     scaledSize: new google.maps.Size(32, 32)
 };
 
+var homeMarker = {
+    url: 'http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png',
+    scaledSize: new google.maps.Size(32, 32)
+}
+
 function initialize(position) {
     /*
      Basic Setup
@@ -92,7 +97,7 @@ function initialize(position) {
     var marker = new google.maps.Marker({
         position: markerlatlng,
         title: "I am here!",
-        icon: iconBase + 'arrow.png'
+        icon: homeMarker
     });
 
     addInfoWindow(marker, "<h3>Me</h3>");
@@ -186,11 +191,7 @@ $('#fileupload').bind('fileuploadadd', function (e, addData) {
 function isWithinBounds(marker1, marker2){
     var sw = new google.maps.LatLng(marker1.getPosition().lat() - 0.025, marker1.getPosition().lng() - 0.025);
     var ne = new google.maps.LatLng(marker1.getPosition().lat() + 0.025, marker1.getPosition().lng() + 0.025);
-    console.log(sw.toString());
-    console.log(ne.toString());
     var marker1Bounds = new google.maps.LatLngBounds(sw, ne);
-    console.log(marker1Bounds.toString());
-    console.log(marker2.getPosition().toString());
     return marker1Bounds.contains(marker2.getPosition());
 }
 
