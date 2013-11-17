@@ -507,9 +507,6 @@
                 template = button.closest('.template-upload'),
                 data = template.data('data');
             button.prop('disabled', true);
-
-            $(".table-striped").addClass("hide");
-
             if (data && data.submit) {
                 data.submit();
             }
