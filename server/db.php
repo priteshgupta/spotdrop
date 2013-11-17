@@ -27,8 +27,13 @@ if (!$result) {
     exit;
 }
 
+var_dump(mysql_fetch_assoc($result));
+
 while ($row = mysql_fetch_assoc($result)) {
     echo $row['foo'];
+
+    var_dump($row);
+
 }
 
 echo "\nHello World";
