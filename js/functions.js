@@ -141,6 +141,8 @@ function drop(ev) {
     console.log(curLatLng);
 
     $('#fileupload').bind('fileuploadfail', function (e, data) {
+            console.log(e);
+            console.log(data);
             alert('failed');
         }
     );
