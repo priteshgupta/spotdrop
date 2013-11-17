@@ -42,7 +42,7 @@ function initialize(position) {
         overviewMapControl: false,
         draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
-        scrollwheel: false,
+        scrollwheel: true,
         zoom: 6,
         center: latLng,
         mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
