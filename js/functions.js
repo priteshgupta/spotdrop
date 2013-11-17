@@ -4,7 +4,7 @@
 /*
  onLoad
  */
-$(function () {
+ $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
 
 
@@ -19,36 +19,36 @@ $(function () {
     }, 500);
 });
 
-var data;
-var map;
-var newPins = new Array();
-var iconBase = 'https://maps.google.com/mapfiles/';
+ var data;
+ var map;
+ var newPins = new Array();
+ var iconBase = 'https://maps.google.com/mapfiles/';
  function initialize(position) {
     /*
     Basic Setup
     */
-     console.log("Lat is " + position.coords.latitude);
+    console.log("Lat is " + position.coords.latitude);
     console.log("Long is " + position.coords.longitude);
-     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-     var stylez = [
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var stylez = [
     {
-       featureType: "all",
-       elementType: "all",
-       stylers: [
+     featureType: "all",
+     elementType: "all",
+     stylers: [
               { saturation: -100 }, // <-- THIS
-               { lightness: -20 }
-                ]
-            }
-            ];
+              { lightness: -20 }
+              ]
+          }
+          ];
 
-            var myOptions = {
-                panControl: false,
-                zoomControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false,
-                draggable: true,
+          var myOptions = {
+            panControl: false,
+            zoomControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            streetViewControl: false,
+            overviewMapControl: false,
+            draggable: true,
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
         zoom: 6,
@@ -176,13 +176,11 @@ function removeMarker(marker){
 
 function updateView(data){
     for (var i = 0; i < data.length; i++) {
+        var obj = new LatLng(data[i].lat, data[i].long);
+
         if (data[i -1] !== undefined) {
             if (data[i].id !== data[i -1].id) {
-                var obj = {
-                    ob : data[i].lat,
-                    pb : data[i].long
-                };
-
+                
                 new google.maps.Marker({
                     position: obj,
                     map: map,
@@ -191,11 +189,6 @@ function updateView(data){
                 });
             }
         } else {
-            var obj = {
-                ob : data[i].lat,
-                pb : data[i].long
-            };
-
             new google.maps.Marker({
                 position: obj,
                 map: map,
