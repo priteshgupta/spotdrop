@@ -23,24 +23,6 @@ function initialize(position) {
     console.log("Lat is " + position.coords.latitude);
     console.log("Long is " + position.coords.longitude);
 
-    $("#zo").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() - 1);
-        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
-    });
-
-    $("#zi").click(function (event) {
-        event.preventDefault();
-        map.setZoom(map.getZoom() + 1);
-    });
-
-    $("#gt").click(function (event) {
-        event.preventDefault();
-        var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        //map.setZoom( 16 );
-        map.panTo(lt1);
-    });
-
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var stylez = [
@@ -65,7 +47,8 @@ function initialize(position) {
         disableDoubleClickZoom: true,     //disable zooming
         scrollwheel: true,
         zoom: 6,
-        center: latLng
+        center: latLng,
+        mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
     };
 
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -119,6 +102,24 @@ function initialize(position) {
 
     google.maps.event.addListener(map, 'mousemove', function (event) {
         updateCurLatLong(event);
+    });
+
+    $("#zo").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() - 1);
+        //map.setCenter(new google.maps.LatLng(9.825183,15.1975769));
+    });
+
+    $("#zi").click(function (event) {
+        event.preventDefault();
+        map.setZoom(map.getZoom() + 1);
+    });
+
+    $("#gt").click(function (event) {
+        event.preventDefault();
+        var lt1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        //map.setZoom( 16 );
+        map.panTo(lt1);
     });
 
 
