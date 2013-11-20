@@ -6,8 +6,10 @@
  */
 $(function () {
     navigator.geolocation.getCurrentPosition(initialize);
+
     setInterval(function () {
         //console.log(allMarkers);
+
         $.get("server/php/return.php?type=file", function (Data) {
             data = JSON.parse(Data);
             //console.log(data);
@@ -19,8 +21,12 @@ $(function () {
             status_data = JSON.parse(Data);
             //console.log(data);
             updateView(status_data, "text");
+
         });
+
+
     }, 500);
+
 });
 
 var data;
@@ -60,8 +66,6 @@ var homeMarker = {
     scaledSize: new google.maps.Size(32, 32)
 }
 
-var latLng = new google.maps.LatLng(null, null);
-
 function initialize(position) {
     /*
      Basic Setup
@@ -80,11 +84,7 @@ function initialize(position) {
 
     var myOptions = {
         panControl: false,
-        zoomControl: true,
-        zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
-            position: google.maps.ControlPosition.LEFT_CENTER
-        },
+        zoomControl: false,
         mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
@@ -94,15 +94,15 @@ function initialize(position) {
         scrollwheel: true,
         zoom: 14,
         center: latLng,
-//        mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
-        mapTypeId: google.maps.MapTypeId.ROADMAP //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
+        mapTypeControl: {mapTypeId: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']},
+        mapTypeId: google.maps.MapTypeId.HYBRID //   ROADMAP; SATELLITE; HYBRID; TERRAIN;
     };
 
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-//    var mapType = new google.maps.StyledMapType(stylez, {name: "Grayscale"});
-//    map.mapTypes.set('tehgrayz', mapType);
-//    map.setMapTypeId('tehgrayz')
+    var mapType = new google.maps.StyledMapType(stylez, {name: "Grayscale"});
+    map.mapTypes.set('tehgrayz', mapType);
+    map.setMapTypeId('tehgrayz')
 
     var markerlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -259,7 +259,7 @@ function updateView(data, type) {
     }
 }
 
-//$("#hidden-text").delay(5000).fadeOut(400);
+$("#hidden-text").delay(5000).fadeOut(400);
 
 function addInfoWindow(marker, html){
     var iWin = new google.maps.InfoWindow({disableAutoPan: true, content: html, });

@@ -8,8 +8,6 @@
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<link rel="icon" href="img/favicon.png" type="image/x-icon">
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600' rel='stylesheet' type='text/css'>
-
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -19,16 +17,16 @@
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="css/jquery.fileupload.css">
     <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 </head>
 <body>
 
-	<header id="holder">
-        <div class="logo">
-            <img src="img/spotdrop_small.png" alt=""/>
-            Spotdrop
-            <!--<span id="hidden-text"> drag + drop a file to begin // </span>-->
+	<div id="holder" div style="font-family:lefont; color: white;">
+        <div style="font-size: 50px; float: left">
+            // Spotdrop //
+            <span id="hidden-text"> drag + drop a file to begin // </span>
         </div>
-        <div class="desc">__Anonymous geolocation based file and message sharing | Drag a file on the map to upload | You can only access files close to you</div>
+
         <div style="float: right; margin: 40px 0px 0px 0px;">
             <form id="statusupload" method="POST">
                 <!--<textarea name="status" class="status" cols="30" rows="1" style="resize: none; outline: none; margin-top: 2px"></textarea>-->
@@ -37,7 +35,7 @@
             </form>
         </div>
 
-    </header>
+    </div>
 
 	<!--Google Maps APIv3 Background-->
 	<div id="canvas_holder">
@@ -202,7 +200,6 @@
     <script src="js/jquery.fileupload-validate.js"></script>
     <!-- The File Upload user interface plugin -->
     <script src="js/jquery.fileupload-ui.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <!-- The main application script -->
     <script src="js/main.js"></script>
     <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
